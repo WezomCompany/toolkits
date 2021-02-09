@@ -4,8 +4,16 @@
 	"description": "Useful tools for working with CSS-in-JS",
 	"scripts": {
 		"build": "del-cli ./dist && tsc",
-		"test": "echo 'No Tests'",
-		"test:atuofix": "echo 'No Tests'"
+    "----------------------------------------------- TEST": "SECTION",
+    "test": "npm run prettier && npm run eslint && npm run jest",
+    "test:autofix": "npm run prettier:autofix && npm run eslint:autofix && npm run jest:coverage",
+    "----------------------------------------------- TEST-INNER": "SECTION",
+    "prettier": "prettier \"./src/**/*.ts\" --check",
+    "prettier:autofix": "npm run prettier -- --write",
+    "eslint": "eslint  ./src/**/**.ts --cache --cache-location ./.cache/eslint/.eslintcache",
+    "eslint:autofix": "npm run eslint -- --fix",
+    "jest": "jest --passWithNoTests",
+    "jest:coverage": "npm run jest -- --coverage --collectCoverageFrom=\"./src/**/*.ts\" && istanbul-badges-readme"
 	},
 	"license": "BSD-3-Clause",
 	"author": {

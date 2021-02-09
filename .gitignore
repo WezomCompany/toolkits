@@ -3,5 +3,6 @@
 .cache
 .idea
 .refs
+coverage
 node_modules
 packages/css-in-js/dist
