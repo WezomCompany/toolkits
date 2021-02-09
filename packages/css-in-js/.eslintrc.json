@@ -8,7 +8,10 @@
 	"overrides": [
 		{
 			"files": ["*.ts"],
-			"extends": ["@wezom/eslint-config-ts", "eslint-config-prettier"]
+			"extends": ["@wezom/eslint-config-ts", "eslint-config-prettier"],
+			"parserOptions": {
+				"project": "./tsconfig.test.json"
+			}
 		}
 	]
 }

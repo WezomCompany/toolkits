@@ -1,1 +1,1 @@
-export const x = true;
+export { default as fontFaceSrc } from './font-face-src';
