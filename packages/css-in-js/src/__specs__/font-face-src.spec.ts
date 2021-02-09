@@ -2,15 +2,15 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { fontFaceSrc } from '../index';
-import { functionSignatureTest } from '@wezom/toolkit-jest';
+import { jssFontFaceSrc } from '../index';
+import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
 
 // -----------------------------------------------------------------------------
 // Tests
 // -----------------------------------------------------------------------------
 
-describe('Should return correct value', () => {
-	functionSignatureTest(fontFaceSrc, [
+describe('Function signature should match specification', () => {
+	jestFunctionSignatureTest(jssFontFaceSrc, [
 		{
 			parameters: ['/fonts/my.woff2', '/fonts/my.woff'],
 			expected:

@@ -6,10 +6,10 @@
  *
  *  // x.spec.ts
  *  import x from 'x.ts'
- *  import { functionSignatureTest } from '@wezom/toolkit-jest'
+ *  import { jestFunctionSignatureTest } from '@wezom/toolkit-jest'
  *
- *  describe('Function signature must match specification', () => {
- *      functionSignatureTest(x, [
+ *  describe('Function signature should match specification', () => {
+ *      jestFunctionSignatureTest(x, [
  *          {
  *              parameters: [true, 4, 5],
  *              expected: 9

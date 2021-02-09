@@ -5,11 +5,12 @@
     "----------------------------- Lerna": "***",
     "lerna:test": "npm run prettier-utils && lerna run test",
     "lerna:test:autofix": "npm run prettier-utils:fix && lerna run test:autofix",
-    "lerna:build": "lerna run build",
-    "lerna:upgrade": "lerna init",
-    "lerna:bootstrap": "lerna bootstrap",
     "lerna:link": "lerna link convert",
-    "lerna:publish": "npm run lerna:build && lerna publish",
+    "lerna:bootstrap": "lerna bootstrap",
+    "lerna:upgrade": "lerna init",
+    "----------------------------- Publish": "***",
+    "lerna:build": "lerna run build",
+    "lerna:publish": "lerna publish",
     "----------------------------- Prettier": "***",
     "prettier-utils": "prettier ./utils --check",
     "prettier-utils:fix": "npm run prettier-utils -- --write"
@@ -17,7 +18,8 @@
   "devDependencies": {
     "@wezom/eslint-config": "^2.1.0-beta.0",
     "@wezom/eslint-config-ts": "^2.1.0-beta.0",
-    "@wezom/toolkit-jest": "^1.0.0-beta.0",
+    "@wezom/toolkit-jest": "file:../jest",
+    "@wezom/toolkit-math": "1.0.1-beta.0",
     "del-cli": "^3.0.1",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
@@ -31,6 +33,7 @@
   },
   "dependencies": {
     "@wezom/toolkit-css-in-js": "file:packages\\css-in-js",
-    "@wezom/toolkit-jest": "file:packages\\jest"
+    "@wezom/toolkit-jest": "file:packages\\jest",
+    "@wezom/toolkit-math": "file:packages\\math"
   }
 }

@@ -1,7 +1,7 @@
 {
-	"name": "@wezom/toolkit-css-in-js",
+	"name": "@wezom/toolkit-math",
 	"version": "1.0.1-beta.0",
-	"description": "Useful tools for working with CSS-in-JS",
+	"description": "Useful math tools",
 	"main": "dist/index.js",
 	"files": [
 		"dist"
@@ -14,7 +14,7 @@
 		"----------------------------------------------- TEST-INNER": "SECTION",
 		"prettier": "prettier \"./src/**/*.ts\" --check",
 		"prettier:autofix": "npm run prettier -- --write",
-		"eslint": "eslint  ./src --cache --cache-location ./.cache/eslint/.eslintcache",
+		"eslint": "eslint  ./src/**/**.ts --cache --cache-location ./.cache/eslint/.eslintcache",
 		"eslint:autofix": "npm run eslint -- --fix",
 		"jest": "jest --passWithNoTests",
 		"jest:coverage": "npm run jest -- --coverage --collectCoverageFrom=\"./src/**/*.ts\" && istanbul-badges-readme"
@@ -28,16 +28,9 @@
 		"@wezom",
 		"toolkit",
 		"toolbox",
-		"CSS-in-JS",
-		"JSS"
+		"math"
 	],
 	"publishConfig": {
 		"access": "public"
-	},
-	"devDependencies": {
-		"@wezom/toolkit-jest": "file:../jest"
-	},
-	"dependencies": {
-		"@wezom/toolkit-math": "file:../math"
 	}
 }

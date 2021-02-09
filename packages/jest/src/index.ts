@@ -1,1 +1,1 @@
-export { default as functionSignatureTest } from './function-signature-test';
+export { default as jestFunctionSignatureTest } from './function-signature-test';
