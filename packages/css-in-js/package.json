@@ -2,10 +2,10 @@
 	"name": "@wezom/toolkit-css-in-js",
 	"version": "1.0.0-beta.0",
 	"description": "Useful tools for working with CSS-in-JS",
-  "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+	"main": "dist/index.js",
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "del-cli ./dist && tsc",
 		"----------------------------------------------- TEST": "SECTION",
@@ -33,5 +33,8 @@
 	],
 	"publishConfig": {
 		"access": "public"
+	},
+	"devDependencies": {
+		"@wezom/toolkit-jest": "file:../jest"
 	}
 }
