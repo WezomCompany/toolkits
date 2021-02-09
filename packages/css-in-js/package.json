@@ -3,8 +3,9 @@
 	"version": "1.0.0-beta.0",
 	"description": "Useful tools for working with CSS-in-JS",
 	"scripts": {
-		"test": "eacho 'No Tests'",
-		"test:atuofix": "eacho 'No Tests'"
+		"build": "del-cli ./dist && tsc",
+		"test": "echo 'No Tests'",
+		"test:atuofix": "echo 'No Tests'"
 	},
 	"license": "BSD-3-Clause",
 	"author": {
