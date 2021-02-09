@@ -17,6 +17,7 @@
   "devDependencies": {
     "@wezom/eslint-config": "^2.1.0-beta.0",
     "@wezom/eslint-config-ts": "^2.1.0-beta.0",
+    "@wezom/toolkit-jest": "latest",
     "del-cli": "^3.0.1",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
@@ -29,6 +30,7 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "@wezom/toolkit-css-in-js": "file:packages\\css-in-js"
+    "@wezom/toolkit-css-in-js": "file:packages\\css-in-js",
+    "@wezom/toolkit-jest": "file:packages\\jest"
   }
 }
