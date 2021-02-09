@@ -14,9 +14,9 @@ describe('Should return correct value', () => {
 		expected: ReturnType<typeof fontFaceSrc>;
 	}[] = [
 		{
-			parameters: ['/fonts/regular.woff2', '/fonts/regular.woff'],
+			parameters: ['/fonts/my.woff2', '/fonts/my.woff'],
 			expected:
-				"url('/fonts/regular.woff2') format('woff2'), url('/fonts/regular.woff') format('woff')"
+				"url('/fonts/my.woff2') format('woff2'), url('/fonts/my.woff') format('woff')"
 		}
 	];
 
