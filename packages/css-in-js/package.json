@@ -1,0 +1,24 @@
+{
+	"name": "@wezom/toolkit-css-in-js",
+	"version": "1.0.0-beta.0",
+	"description": "Useful tools for working with CSS-in-JS",
+	"scripts": {
+		"test": "eacho 'No Tests'",
+		"test:atuofix": "eacho 'No Tests'"
+	},
+	"license": "BSD-3-Clause",
+	"author": {
+		"name": "Oleg Dutchenko",
+		"email": "dutchenko.o.dev@gmail.com"
+	},
+	"keywords": [
+		"@wezom",
+		"toolkit",
+		"toolbox",
+		"CSS-in-JS",
+		"JSS"
+	],
+	"publishConfig": {
+		"access": "public"
+	}
+}
