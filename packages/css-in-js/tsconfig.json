@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"allowJs": false,
+		"allowJs": true,
 		"baseUrl": "src",
 		"declaration": true,
 		"esModuleInterop": true,
@@ -14,7 +14,7 @@
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": false,
-		"outDir": "dist/cjs",
+		"outDir": "dist",
 		"sourceMap": false,
 		"strict": true,
 		"strictNullChecks": true,

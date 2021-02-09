@@ -3,13 +3,13 @@
   "private": true,
   "scripts": {
     "----------------------------- Lerna": "***",
-    "lerna:build": "lerna run build",
     "lerna:test": "npm run prettier-utils && lerna run test",
     "lerna:test:autofix": "npm run prettier-utils:fix && lerna run test:autofix",
+    "lerna:build": "lerna run build",
     "lerna:upgrade": "lerna init",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:link": "lerna link convert",
-    "lerna:publish": "lerna publish",
+    "lerna:publish": "npm run lerna:build && lerna publish",
     "----------------------------- Prettier": "***",
     "prettier-utils": "prettier ./utils --check",
     "prettier-utils:fix": "npm run prettier-utils -- --write"
