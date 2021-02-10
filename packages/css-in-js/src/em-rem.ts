@@ -4,6 +4,13 @@ type PixelValue = number | 'auto' | 'inherit' | 'initial' | 'revert' | 'unset';
 type Units = 'em' | 'rem';
 type Joiner = ', ' | ' ';
 
+/**
+ * sdfsdf
+ * @param size
+ * @param pixels
+ * @param unit
+ * @param joiner
+ */
 function _convert(
 	size: number,
 	pixels: PixelValue[],
