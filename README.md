@@ -1,6 +1,5 @@
 # toolkits
 
-![All packages tests](https://github.com/WezomCompany/toolkits/workflows/All%20packages%20tests/badge.svg)
 ![All packages builds](https://github.com/WezomCompany/toolkits/workflows/All%20packages%20builds/badge.svg)
 
 ## Packages:
