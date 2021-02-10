@@ -33,8 +33,5 @@
 	],
 	"publishConfig": {
 		"access": "public"
-	},
-	"devDependencies": {
-		"@wezom/toolkit-jest": "file:../jest"
 	}
 }
