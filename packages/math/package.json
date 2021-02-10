@@ -1,7 +1,7 @@
 {
-	"name": "@wezom/toolkit-css-in-js",
+	"name": "@wezom/toolkit-math",
 	"version": "1.2.0-beta.0",
-	"description": "Useful tools for working with CSS-in-JS",
+	"description": "Useful math tools",
 	"main": "dist/index.js",
 	"files": [
 		"dist"
@@ -29,16 +29,12 @@
 		"@wezom",
 		"toolkit",
 		"toolbox",
-		"CSS-in-JS",
-		"JSS"
+		"math"
 	],
 	"publishConfig": {
 		"access": "public"
 	},
-	"devDependencies": {
+	"devDpendencies": {
 		"@wezom/toolkit-jest": "file:../jest"
-	},
-	"dependencies": {
-		"@wezom/toolkit-math": "file:../math"
 	}
 }
