@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "----------------------------- Lerna": "***",
+    "lerna:autodoc": "lerna run autodoc",
     "lerna:test": "npm run prettier-utils && lerna run test",
     "lerna:test:autofix": "npm run prettier-utils:fix && lerna run test:autofix",
     "lerna:link": "lerna link convert",

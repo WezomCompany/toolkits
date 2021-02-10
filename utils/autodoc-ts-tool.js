@@ -2,7 +2,7 @@ const fs = require('fs');
 const fromCWD = require('from-cwd');
 const typedoc = require('typedoc');
 
-const toolsFilePath = fromCWD('TOOLS.md');
+const toolsFilePath = fromCWD('README.md');
 const toolsTypeDocPath = fromCWD('.cache/typedoc.normalized.json');
 const toolsFileContent = fs.readFileSync(toolsFilePath).toString();
 const toolsTypeDoc = JSON.parse(fs.readFileSync(toolsTypeDocPath).toString());

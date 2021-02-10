@@ -8,8 +8,7 @@
 	],
 	"scripts": {
 		"build": "del-cli ./dist && tsc",
-		"autodoc-tool": "node ../../utils/autodoc-ts-tool.js && prettier ./TOOLS.md --write",
-		"typedoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js",
+		"autodoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js && node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
 		"----------------------------------------------- TEST": "SECTION",
 		"test": "npm run prettier && npm run eslint && npm run jest",
 		"test:autofix": "npm run prettier:autofix && npm run eslint:autofix && npm run jest:coverage",
