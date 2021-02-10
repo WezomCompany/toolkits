@@ -1,5 +1,7 @@
 /**
  * Correction of rounding of decimal fractions.
+ * @param {number} value - some value
+ * @param exp
  */
 export default function (value: number, exp?: number): number {
 	if (exp === undefined || exp === 0) {

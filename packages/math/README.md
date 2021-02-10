@@ -20,6 +20,15 @@
 
 Correction of rounding of decimal fractions.
 
+_Parameters:_
+
+| Name  | Data type | Argument   | Default value | Description |
+| ----- | --------- | ---------- | ------------- | ----------- |
+| value | `number`  | _required_ |               | some value  |
+| exp   | `number`  | _optional_ |               |
+
+_Returns:_ `number`
+
 [comment]: <> (AUTODOC-TOOL-END)
 
 ---

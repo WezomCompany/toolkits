@@ -20,6 +20,15 @@
 
 Function signature test with set of custom cases
 
+_Parameters:_
+
+| Name   | Data type | Argument   | Default value | Description |
+| ------ | --------- | ---------- | ------------- | ----------- |
+| method | `T`       | _required_ |               |
+| cases  |           | _required_ |               |
+
+_Returns:_ `void`
+
 _Examples:_
 
 ```ts
