@@ -15,5 +15,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install
         run: npm ci
+      - name: Init
+        run: npm run lerna:upgrade
+      - name: Link
+        run: npm run lerna:link
+      - name: Bootstrap
+        run: npm run lerna:bootstrap
       - name: Test
         run: npm run lerna:test
