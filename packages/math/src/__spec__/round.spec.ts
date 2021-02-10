@@ -2,6 +2,7 @@ import { mathRound } from '../index';
 import { jestFunctionSignatureTest } from '../../../jest/dist/index';
 
 describe('Function signature should match specification', () => {
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 	jestFunctionSignatureTest(mathRound, [
 		{
 			parameters: [(9 / 16) * 100],
