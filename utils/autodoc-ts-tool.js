@@ -60,7 +60,9 @@ const newToolsFileContent = toolsFileContent.replace(regExp, (str, g1, g2, g3, g
 								[
 									parameter.name,
 									dataType,
-									flags.isOptional ? '_optional_' : '_required_',
+									flags.isOptional || parameter.defaultValue
+										? '_optional_'
+										: '',
 									_code(parameter.defaultValue),
 									comment.text || ''
 								].join(' | ')

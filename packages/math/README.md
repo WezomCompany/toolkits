@@ -10,7 +10,7 @@
 
 ## Tools
 
-1. [mathRound](#mathround)
+1. [`mathRound()`](#mathround)
 
 ---
 
@@ -24,7 +24,7 @@ _Parameters:_
 
 | Name  | Data type | Argument   | Default value | Description |
 | ----- | --------- | ---------- | ------------- | ----------- |
-| value | `number`  | _required_ |               | some value  |
+| value | `number`  |            |               | some value  |
 | exp   | `number`  | _optional_ |               |
 
 _Returns:_ `number`

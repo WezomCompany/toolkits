@@ -10,14 +10,149 @@
 
 ## Tools
 
-1. [jssClamp](#jssclamp)
-1. [jssClampHack](#jssclamphack)
-1. [jssEm](#jssem)
-1. [jssFontFaceSrc](#jssfontfacesrc)
-1. [jssMax](#jssmax)
-1. [jssMin](#jssmin)
-1. [jssPercentage](#jsspercentage)
-1. [jssRem](#jssrem)
+1. [`jssAbsoluteCenter()`](#jssabsolutecenter)
+1. [`jssAbsoluteGap()`](#jssabsolutecenter)
+1. [`jssAbsoluteSquare()`](#jssabsolutecenter)
+1. [`jssClamp()`](#jssclamp)
+1. [`jssClampHack()`](#jssclamphack)
+1. [`jssEm()`](#jssem)
+1. [`jssFontFaceSrc()`](#jssfontfacesrc)
+1. [`jssMax()`](#jssmax)
+1. [`jssMin()`](#jssmin)
+1. [`jssPercentage()`](#jsspercentage)
+1. [`jssRem()`](#jssrem)
+1. [`jssUnitExtract()`](#jssunitextract)
+1. [`jssUnitLess()`](#jssunitless)
+
+---
+
+### jssAbsoluteCenter()
+
+[comment]: <> (AUTODOC-TOOL-START::absolute-center#default)
+
+Generate CSS properties for absolute centering
+
+_Parameters:_
+
+| Name   | Data type | Argument   | Default value | Description |
+| ------ | --------- | ---------- | ------------- | ----------- |
+| width  | `string`  |            |               |
+| height | `string`  | _optional_ | `...`         |
+
+_Examples:_
+
+```ts
+ jssAbsoluteCenter('3rem');
+ // returns
+ {
+     top: '50%',
+     left: '50%',
+     width: '3rem',
+     height: '3rem',
+     margin: '-1.5rem 0 0 -1.5rem'
+ }
+
+ jssAbsoluteCenter('4rem', '60px');
+ // returns
+ {
+     top: '50%',
+     left: '50%',
+     width: '4rem',
+     height: '60px',
+     margin: '-30px 0 0 -2rem'
+ }
+
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### jssAbsoluteGap()
+
+[comment]: <> (AUTODOC-TOOL-START::absolute-gap#default)
+
+_Parameters:_
+
+| Name | Data type | Argument   | Default value | Description |
+| ---- | --------- | ---------- | ------------- | ----------- |
+| x    | `string`  |            |               |
+| y    | `string`  | _optional_ | `...`         |
+
+_Examples:_
+
+```ts
+ jssAbsoluteGap('10px');
+ // returns
+ {
+     width: 'auto',
+     height: 'auto',
+     top: '10px',
+     right: '10px',
+     bottom: '10px',
+     left: '10px'
+ }
+
+ jssAbsoluteGap('10px', '2em');
+ // returns
+ {
+     width: 'auto',
+     height: 'auto',
+     top: '10px',
+     right: '2em',
+     bottom: '10px',
+     left: '2em'
+ }
+
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### jssAbsoluteSquare()
+
+[comment]: <> (AUTODOC-TOOL-START::absolute-square#default)
+
+_Parameters:_
+
+| Name    | Data type         | Argument | Default value | Description |
+| ------- | ----------------- | -------- | ------------- | ----------- |
+| percent | `string / number` |          |               |
+
+_Examples:_
+
+```ts
+ jssAbsoluteSquare(54);
+ // returns
+ {
+     top: '23%',
+     left: '23%',
+     width: '54%',
+     height: '54%'
+ }
+
+ jssAbsoluteSquare(100);
+ // returns
+ {
+     top: '0%',
+     left: '0%',
+     width: '100%',
+     height: '100%'
+ }
+
+ jssAbsoluteSquare('120%');
+ // returns
+ {
+     top: '-10%',
+     left: '-10%',
+     width: '120%',
+     height: '120%'
+ }
+
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
 
 ---
 
@@ -29,11 +164,11 @@ Generate css math function `clap(min, val, max)`
 
 _Parameters:_
 
-| Name | Data type | Argument   | Default value | Description |
-| ---- | --------- | ---------- | ------------- | ----------- |
-| min  | `Operand` | _required_ |               |
-| val  | `Operand` | _required_ |               |
-| max  | `Operand` | _required_ |               |
+| Name | Data type | Argument | Default value | Description |
+| ---- | --------- | -------- | ------------- | ----------- |
+| min  | `Operand` |          |               |
+| val  | `Operand` |          |               |
+| max  | `Operand` |          |               |
 
 _Returns:_ `string`
 
@@ -52,15 +187,15 @@ jssClamp(jssRem(24), '10%', jssRem(64)); // 'clamp(1.5rem, 10%, 4rem)'
 
 [comment]: <> (AUTODOC-TOOL-START::min-max-clamp#jssClampHack)
 
-Generate css math function-hack `max(min, min(val, max))` instead `clamp`
+Generate css math function-hack `max(x, min(y, z))` instead `clamp(z, y, x)`
 
 _Parameters:_
 
-| Name | Data type | Argument   | Default value | Description |
-| ---- | --------- | ---------- | ------------- | ----------- |
-| min  | `Operand` | _required_ |               |
-| val  | `Operand` | _required_ |               |
-| max  | `Operand` | _required_ |               |
+| Name | Data type | Argument | Default value | Description |
+| ---- | --------- | -------- | ------------- | ----------- |
+| min  | `Operand` |          |               |
+| val  | `Operand` |          |               |
+| max  | `Operand` |          |               |
 
 _Returns:_ `string`
 
@@ -83,9 +218,9 @@ _Parameters:_
 
 | Name    | Data type      | Argument   | Default value | Description |
 | ------- | -------------- | ---------- | ------------- | ----------- |
-| remSize | `number`       | _required_ |               |
-| pixels  | `PixelValue[]` | _required_ |               |
-| joiner  | `Joiner`       | _required_ | `' '`         |
+| remSize | `number`       |            |               |
+| pixels  | `PixelValue[]` |            |               |
+| joiner  | `Joiner`       | _optional_ | `' '`         |
 
 _Returns:_ `string`
 
@@ -112,10 +247,10 @@ Returns string font-face src value
 
 _Parameters:_
 
-| Name  | Data type | Argument   | Default value | Description |
-| ----- | --------- | ---------- | ------------- | ----------- |
-| woff2 | `string`  | _required_ |               |
-| woff  | `string`  | _required_ |               |
+| Name  | Data type | Argument | Default value | Description |
+| ----- | --------- | -------- | ------------- | ----------- |
+| woff2 | `string`  |          |               |
+| woff  | `string`  |          |               |
 
 _Returns:_ `string`
 
@@ -138,10 +273,10 @@ Generate css math function `max(a, b)`
 
 _Parameters:_
 
-| Name | Data type | Argument   | Default value | Description |
-| ---- | --------- | ---------- | ------------- | ----------- |
-| a    | `Operand` | _required_ |               |
-| b    | `Operand` | _required_ |               |
+| Name | Data type | Argument | Default value | Description |
+| ---- | --------- | -------- | ------------- | ----------- |
+| a    | `Operand` |          |               |
+| b    | `Operand` |          |               |
 
 _Returns:_ `string`
 
@@ -164,10 +299,10 @@ Generate css math function `min(a, b)`
 
 _Parameters:_
 
-| Name | Data type | Argument   | Default value | Description |
-| ---- | --------- | ---------- | ------------- | ----------- |
-| a    | `Operand` | _required_ |               |
-| b    | `Operand` | _required_ |               |
+| Name | Data type | Argument | Default value | Description |
+| ---- | --------- | -------- | ------------- | ----------- |
+| a    | `Operand` |          |               |
+| b    | `Operand` |          |               |
 
 _Returns:_ `string`
 
@@ -192,10 +327,10 @@ _Parameters:_
 
 | Name           | Data type | Argument   | Default value | Description |
 | -------------- | --------- | ---------- | ------------- | ----------- |
-| part           | `number`  | _required_ |               |
-| full           | `number`  | _required_ |               |
-| returnAsNumber | `boolean` | _required_ | `false`       |
-| fractionDigits | `number`  | _required_ | `5`           |
+| part           | `number`  |            |               |
+| full           | `number`  |            |               |
+| returnAsNumber | `boolean` | _optional_ | `false`       |
+| fractionDigits | `number`  | _optional_ | `5`           |
 
 _Returns:_ `string / number`
 
@@ -220,9 +355,9 @@ _Parameters:_
 
 | Name    | Data type      | Argument   | Default value | Description |
 | ------- | -------------- | ---------- | ------------- | ----------- |
-| remSize | `number`       | _required_ |               |
-| pixels  | `PixelValue[]` | _required_ |               |
-| joiner  | `Joiner`       | _required_ | `' '`         |
+| remSize | `number`       |            |               |
+| pixels  | `PixelValue[]` |            |               |
+| joiner  | `Joiner`       | _optional_ | `' '`         |
 
 _Returns:_ `string`
 
@@ -240,3 +375,56 @@ jssRem(20, [30, 10, 45], ', '); // => '1.5rem, 0.5rem, 2.25rem'
 [comment]: <> (AUTODOC-TOOL-END)
 
 ---
+
+### jssUnitExtract()
+
+[comment]: <> (AUTODOC-TOOL-START::units#jssUnitExtract)
+
+Get CSS unit `px|rem|em|%|vw|vh|ms|s` from value
+
+_Parameters:_
+
+| Name  | Data type         | Argument | Default value | Description |
+| ----- | ----------------- | -------- | ------------- | ----------- |
+| value | `string / number` |          |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssUnitExtract(100); // ''
+jssUnitExtract('3rem'); // 'rem'
+jssUnitExtract(jssEm(16, [64])); // 'em'
+jssUnitExtract('-20px'); // 'px'
+jssUnitExtract('56.25%'); // '%'
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### jssUnitLess()
+
+[comment]: <> (AUTODOC-TOOL-START::units#jssUnitLess)
+
+Remove CSS unit `px|rem|em|%|vw|vh|ms|s` and receive number value
+
+_Parameters:_
+
+| Name  | Data type         | Argument | Default value | Description |
+| ----- | ----------------- | -------- | ------------- | ----------- |
+| value | `string / number` |          |               |
+
+_Returns:_ `number`
+
+_Examples:_
+
+```ts
+jssUnitLess('3rem'); // 4
+jssUnitLess(jssEm(16, [64])); // 4
+jssUnitLess('-20px'); // -20
+jssUnitLess('56.25%'); // 56.25
+```
+
+[comment]: <> (AUTODOC-TOOL-END)

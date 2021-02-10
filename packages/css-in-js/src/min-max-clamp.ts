@@ -26,7 +26,7 @@ export const jssClamp = (min: Operand, val: Operand, max: Operand): string =>
 	`clamp(${min}, ${val}, ${max})`;
 
 /**
- * Generate css math function-hack `max(min, min(val, max))` instead `clamp`
+ * Generate css math function-hack `max(x, min(y, z))` instead `clamp(z, y, x)`
  * @example
  *  jssClamp('10px', '5vw', '50px') // 'max(10px, min(5vw, 50px))'
  *  jssClamp(jssRem(24), '10%', jssRem(64)) // 'max(1.5rem, min(10%, 4rem))'

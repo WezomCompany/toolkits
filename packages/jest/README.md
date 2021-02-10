@@ -10,7 +10,7 @@
 
 ## Tools
 
-1. [jestFunctionSignatureTest](#jestfunctionsignaturetest)
+1. [`jestFunctionSignatureTest()`](#jestfunctionsignaturetest)
 
 ---
 
@@ -22,10 +22,10 @@ Function signature test with set of custom cases
 
 _Parameters:_
 
-| Name   | Data type | Argument   | Default value | Description |
-| ------ | --------- | ---------- | ------------- | ----------- |
-| method | `T`       | _required_ |               |
-| cases  |           | _required_ |               |
+| Name   | Data type | Argument | Default value | Description |
+| ------ | --------- | -------- | ------------- | ----------- |
+| method | `T`       |          |               |
+| cases  |           |          |               |
 
 _Returns:_ `void`
 
