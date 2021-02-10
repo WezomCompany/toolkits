@@ -8,7 +8,7 @@ function _convert(
 	size: number,
 	pixels: PixelValue[],
 	unit: Units,
-	joiner: Joiner = ' '
+	joiner: Joiner
 ): string {
 	return pixels
 		.map((px) => {
@@ -34,7 +34,7 @@ function _convert(
 export function jssEm(
 	remSize: number,
 	pixels: PixelValue[],
-	joiner: Joiner
+	joiner: Joiner = ' '
 ): string {
 	return _convert(remSize, pixels, 'em', joiner);
 }
