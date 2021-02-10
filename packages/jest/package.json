@@ -1,6 +1,6 @@
 {
 	"name": "@wezom/toolkit-jest",
-	"version": "1.1.0-beta.0",
+	"version": "1.2.0-beta.0",
 	"description": "Useful tools for working with Jest",
 	"main": "dist/index.js",
 	"files": [
@@ -8,8 +8,8 @@
 	],
 	"scripts": {
 		"build": "del-cli ./dist && tsc",
-    "autodoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js && node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
-    "----------------------------------------------- TEST": "SECTION",
+		"autodoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js && node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
+		"----------------------------------------------- TEST": "SECTION",
 		"test": "npm run prettier && npm run eslint && npm run jest",
 		"test:autofix": "npm run prettier:autofix && npm run eslint:autofix && npm run jest:coverage",
 		"----------------------------------------------- TEST-INNER": "SECTION",
