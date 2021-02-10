@@ -1,10 +1,8 @@
 import { mathRound } from '../index';
+import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
 
 describe('Function signature should match specification', () => {
-	const cases: {
-		parameters: Parameters<typeof mathRound>;
-		expected: ReturnType<typeof mathRound>;
-	}[] = [
+	jestFunctionSignatureTest(mathRound, [
 		{
 			parameters: [(9 / 16) * 100],
 			expected: 56
@@ -61,12 +59,5 @@ describe('Function signature should match specification', () => {
 			parameters: [44e100, 2],
 			expected: 4.4e101
 		}
-	];
-
-	cases.forEach(({ parameters, expected }, i) => {
-		test(`Test case #${i + 1}`, () => {
-			const result = mathRound(...parameters);
-			expect(result).toStrictEqual(expected);
-		});
-	});
+	]);
 });

@@ -15,7 +15,7 @@
 		"----------------------------------------------- TEST-INNER": "SECTION",
 		"prettier": "prettier \"./src/**/*.ts\" --check",
 		"prettier:autofix": "npm run prettier -- --write",
-		"eslint": "eslint  ./src/**/**.ts --cache --cache-location ./.cache/eslint/.eslintcache",
+		"eslint": "eslint  ./src/*.ts --cache --cache-location ./.cache/eslint/.eslintcache",
 		"eslint:autofix": "npm run eslint -- --fix",
 		"jest": "jest --passWithNoTests",
 		"jest:coverage": "npm run jest -- --coverage --collectCoverageFrom=\"./src/**/*.ts\" && istanbul-badges-readme"
