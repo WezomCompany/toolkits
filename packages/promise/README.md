@@ -1,6 +1,6 @@
-# @wezom/toolkit-math
+# @wezom/toolkit-promise
 
-> _Useful math tools_
+> _Useful tools for working with Promises_
 
 | Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -15,7 +15,7 @@
         - [ESNext](#esnext)
         - [CommonJS Version](#commonjs-version)
 1. [Tools](#usage)
-    1. [`mathRound()`](#mathround)
+    1. [`promiseSleep()`](#promisesleep)
 1. [Contributing](#contributing)
 1. [License](#licence)
 
@@ -44,7 +44,7 @@ If you cannot change your bundler config or if you don not want to include _esne
 
 ```js
 // no ES6 features but ready for use as is, without transpiling
-import { /* ... */ } from '@wezom/toolkit-math/dist/index.cjs.js';
+import { /* ... */ } from '@wezom/toolkit-promise/dist/index.cjs.js';
 ```
 
 ---
@@ -55,20 +55,30 @@ import { /* ... */ } from '@wezom/toolkit-math/dist/index.cjs.js';
 
 ## Tools
 
-### mathRound()
+### promiseSleep()
 
-[comment]: <> (AUTODOC-TOOL-START::round#default)
+[comment]: <> (AUTODOC-TOOL-START::sleep#default)
 
-Correction of rounding of decimal fractions.
+Sleep some milliseconds and resolve promise
 
 _Parameters:_
 
-| Name  | Data type | Argument   | Default value | Description |
-| ----- | --------- | ---------- | ------------- | ----------- |
-| value | `number`  |            |               | some value  |
-| exp   | `number`  | _optional_ |               |
+| Name | Data type | Argument | Default value | Description |
+| ---- | --------- | -------- | ------------- | ----------- |
+| ms   | `number`  |          |               |
 
-_Returns:_ `number`
+_Returns:_ `Promise<void>`
+
+_Examples:_
+
+```ts
+promiseSleep(500).then(() => tryAgainSomeMethod());
+// or
+async function fakeSubmit() {
+	await promiseSleep(300);
+	return true;
+}
+```
 
 [comment]: <> (AUTODOC-TOOL-END)
 

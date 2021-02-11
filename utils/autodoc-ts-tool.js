@@ -9,10 +9,18 @@ const toolsTypeDoc = JSON.parse(fs.readFileSync(toolsTypeDocPath).toString());
 
 const _code = (value) => (value === undefined ? '' : `\`${value}\``);
 const _trimCode = (value) => (value.length >= 3 ? value.slice(1, -1) : '');
+const _parseTrimJoin = (arr, joiner) => arr.map(_parseType).map(_trimCode).join(joiner);
 const _parseType = (docType) => {
 	switch (docType.type) {
 		case 'intrinsic':
+			return _code(docType.name);
 		case 'reference':
+			if (Array.isArray(docType.typeArguments)) {
+				const tArgs = _parseTrimJoin(docType.typeArguments, ' / ');
+				if (tArgs.length) {
+					return _code(`${docType.name}<${tArgs}>`);
+				}
+			}
 			return _code(docType.name);
 		case 'array':
 			switch (docType.elementType.type) {
@@ -21,9 +29,9 @@ const _parseType = (docType) => {
 			}
 			break;
 		case 'intersection':
-			return _code(docType.types.map(_parseType).map(_trimCode).join(' & '));
+			return _code(_parseTrimJoin(docType.types, ' & '));
 		case 'union':
-			return _code(docType.types.map(_parseType).map(_trimCode).join(' / '));
+			return _code(_parseTrimJoin(docType.types, ' / '));
 		default:
 			return '';
 	}

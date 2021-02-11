@@ -6,20 +6,29 @@
 	"files": [
 		"dist"
 	],
-	"scripts": {
-		"build": "del-cli ./dist && tsc",
-		"autodoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js && node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
-		"----------------------------------------------- TEST": "SECTION",
-		"test": "npm run prettier && npm run eslint && npm run jest",
-		"test:autofix": "npm run prettier:autofix && npm run eslint:autofix && npm run jest:coverage",
-		"----------------------------------------------- TEST-INNER": "SECTION",
-		"prettier": "prettier \"./src/**/*.ts\" --check",
-		"prettier:autofix": "npm run prettier -- --write",
-		"eslint": "eslint  ./src/*.ts --cache --cache-location ./.cache/eslint/.eslintcache",
-		"eslint:autofix": "npm run eslint -- --fix",
-		"jest": "jest --passWithNoTests",
-		"jest:coverage": "npm run jest -- --coverage --collectCoverageFrom=\"./src/**/*.ts\" && istanbul-badges-readme"
-	},
+  "scripts": {
+    "build": "npm run build:clen-prev && npm run build:esnext && npm run build:cjs && npm run build:re-structure && npm run build:clean-cjs && npm run build:format",
+    "autodoc": "npm run autodoc:typedoc && npm run autodoc:inject",
+    "test": "npm run prettier && npm run eslint && npm run jest",
+    "test:autofix": "npm run prettier:autofix && npm run eslint:autofix && npm run jest:coverage",
+    "----------------------------------------------- BUILD": "SECTION",
+    "build:clen-prev": "del-cli dist",
+    "build:esnext": "tsc",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:re-structure": "node ../../utils/re-structure-cjs-dist.js",
+    "build:clean-cjs": "del-cli dist/cjs",
+    "build:format": "prettier dist/**/*.{d.ts,js} --check --write",
+    "----------------------------------------------- AUTODOC": "SECTION",
+    "autodoc:typedoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js",
+    "autodoc:inject": "node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
+    "----------------------------------------------- TEST": "SECTION",
+    "prettier": "prettier \"./src/**/*.ts\" --check",
+    "prettier:autofix": "npm run prettier -- --write",
+    "eslint": "eslint  ./src/*.ts --cache --cache-location ./.cache/eslint/.eslintcache",
+    "eslint:autofix": "npm run eslint -- --fix",
+    "jest": "jest --passWithNoTests",
+    "jest:coverage": "npm run jest -- --coverage --collectCoverageFrom=\"./src/**/*.ts\" && istanbul-badges-readme"
+  },
 	"license": "BSD-3-Clause",
 	"author": {
 		"name": "Oleg Dutchenko",
@@ -32,6 +41,14 @@
 		"CSS-in-JS",
 		"JSS"
 	],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WezomCompany/toolkits.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WezomCompany/toolkits/issues"
+  },
+  "homepage": "https://github.com/WezomCompany/toolkits/tree/main/packages/css-in-js#readme",
 	"publishConfig": {
 		"access": "public"
 	},
