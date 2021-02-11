@@ -1,11 +1,11 @@
 {
-	"name": "@wezom/toolkit-css-in-js",
-	"version": "1.2.0-beta.0",
-	"description": "Useful tools for working with CSS-in-JS",
-	"main": "dist/index.js",
-	"files": [
-		"dist"
-	],
+  "name": "@wezom/toolkit-css-in-js",
+  "version": "1.2.0-beta.0",
+  "description": "Useful tools for working with CSS-in-JS",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "npm run build:clen-prev && npm run build:esnext && npm run build:cjs && npm run build:re-structure && npm run build:clean-cjs && npm run build:format",
     "autodoc": "npm run autodoc:typedoc && npm run autodoc:inject",
@@ -29,18 +29,18 @@
     "jest": "jest --passWithNoTests",
     "jest:coverage": "npm run jest -- --coverage --collectCoverageFrom=\"./src/**/*.ts\" && istanbul-badges-readme"
   },
-	"license": "BSD-3-Clause",
-	"author": {
-		"name": "Oleg Dutchenko",
-		"email": "dutchenko.o.dev@gmail.com"
-	},
-	"keywords": [
-		"@wezom",
-		"toolkit",
-		"toolbox",
-		"CSS-in-JS",
-		"JSS"
-	],
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Oleg Dutchenko",
+    "email": "dutchenko.o.dev@gmail.com"
+  },
+  "keywords": [
+    "@wezom",
+    "toolkit",
+    "toolbox",
+    "CSS-in-JS",
+    "JSS"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WezomCompany/toolkits.git"
@@ -49,13 +49,13 @@
     "url": "https://github.com/WezomCompany/toolkits/issues"
   },
   "homepage": "https://github.com/WezomCompany/toolkits/tree/main/packages/css-in-js#readme",
-	"publishConfig": {
-		"access": "public"
-	},
-	"devDependencies": {
-		"@wezom/toolkit-jest": "file:../jest"
-	},
-	"dependencies": {
-		"@wezom/toolkit-math": "file:../math"
-	}
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@wezom/toolkit-jest": "file:../jest"
+  },
+  "dependencies": {
+    "@wezom/toolkit-math": "file:../math"
+  }
 }

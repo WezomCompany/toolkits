@@ -10,7 +10,7 @@
 			"files": ["*.ts"],
 			"extends": ["@wezom/eslint-config-ts", "eslint-config-prettier"],
 			"parserOptions": {
-				"project": "../../tsconfig.eslint.json"
+				"project": "./tsconfig.eslint.json"
 			}
 		}
 	]

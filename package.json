@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "----------------------------- Lerna": "***",
-    "lerna:autodoc": "lerna run autodoc",
     "lerna:test": "npm run prettier-utils && lerna run test",
     "lerna:test:autofix": "npm run prettier-utils:fix && lerna run test:autofix",
+    "lerna:autodoc": "lerna run autodoc",
     "lerna:link": "lerna link convert",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:upgrade": "lerna init",
@@ -36,6 +36,7 @@
   "dependencies": {
     "@wezom/toolkit-css-in-js": "file:packages\\css-in-js",
     "@wezom/toolkit-jest": "file:packages\\jest",
-    "@wezom/toolkit-math": "file:packages\\math"
+    "@wezom/toolkit-math": "file:packages\\math",
+    "@wezom/toolkit-promise": "file:packages\\promise"
   }
 }

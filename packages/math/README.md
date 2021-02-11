@@ -6,7 +6,6 @@
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
-
 ## Table of Content:
 
 1. [Usage](#usage)
@@ -44,7 +43,7 @@ If you cannot change your bundler config or if you don not want to include _esne
 
 ```js
 // no ES6 features but ready for use as is, without transpiling
-import { /* ... */ } from '@wezom/toolkit-math/dist/index.cjs.js';
+import /* ... */ '@wezom/toolkit-math/dist/index.cjs.js';
 ```
 
 ---
