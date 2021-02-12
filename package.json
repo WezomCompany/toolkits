@@ -19,8 +19,6 @@
   "devDependencies": {
     "@wezom/eslint-config": "^2.1.0-beta.0",
     "@wezom/eslint-config-ts": "^2.1.1-beta.0",
-    "@wezom/toolkit-jest": "file:../jest",
-    "@wezom/toolkit-jest-cjs": "file:../jest-cjs",
     "del-cli": "^3.0.1",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
@@ -41,8 +39,6 @@
     "@wezom/toolkit-array-cjs": "file:packages\\array-cjs",
     "@wezom/toolkit-css-in-js": "file:packages\\css-in-js",
     "@wezom/toolkit-css-in-js-cjs": "file:packages\\css-in-js-cjs",
-    "@wezom/toolkit-jest": "file:packages\\jest",
-    "@wezom/toolkit-jest-cjs": "file:packages\\jest-cjs",
     "@wezom/toolkit-math": "file:packages\\math",
     "@wezom/toolkit-math-cjs": "file:packages\\math-cjs",
     "@wezom/toolkit-promise": "file:packages\\promise",

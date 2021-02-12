@@ -50,9 +50,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "@wezom/toolkit-jest-cjs": "file:../jest-cjs"
-  },
   "dependencies": {
     "@wezom/toolkit-math": "file:../math"
   }
