@@ -15,5 +15,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install
         run: npm ci
+      - name: Init
+        run: npm run lerna:upgrade && npm run lerna:link && npm run lerna:bootstrap
       - name: Test package "@wezom/toolkit-math"
         run: cd packages/math && npm run test

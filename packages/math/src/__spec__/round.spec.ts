@@ -1,5 +1,5 @@
 import { mathRound } from '../index';
-import jestFunctionSignatureTest from '../../../jest-cjs/dist/function-signature-test';
+import { jestFunctionSignatureTest } from '@wezom/toolkit-jest-cjs';
 
 describe('Function signature should match specification', () => {
 	jestFunctionSignatureTest(mathRound, [
