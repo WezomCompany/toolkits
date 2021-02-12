@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 import { jssAbsoluteCenter } from '../index';
-import { jestFunctionSignatureTest } from '@wezom/toolkit-jest-cjs';
+import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
 
 // -----------------------------------------------------------------------------
 // Tests
