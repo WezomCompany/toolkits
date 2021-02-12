@@ -17,3 +17,17 @@ jobs:
         run: npm ci
       - name: Test
         run: npm run test
+  test2:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        node-version: [15.x]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install
+        run: npm ci
+      - name: Test
+        run: npm run test

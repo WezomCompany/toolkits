@@ -18,10 +18,7 @@
 		"sourceMap": false,
 		"strict": true,
 		"strictNullChecks": true,
-		"suppressImplicitAnyIndexErrors": true,
-		"paths": {
-			"@wezom/toolkit-math": ["packages/math/dist"]
-		}
+		"suppressImplicitAnyIndexErrors": true
 	},
 	"exclude": [
 		"node_modules",
