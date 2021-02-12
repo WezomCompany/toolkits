@@ -57,6 +57,6 @@
 		"access": "public"
 	},
 	"devDpendencies": {
-		"@wezom/toolkit-jest": "file:../jest"
+		"@wezom/toolkit-jest-cjs": "file:../jest-cjs"
 	}
 }

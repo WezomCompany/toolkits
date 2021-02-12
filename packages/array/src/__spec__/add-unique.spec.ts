@@ -1,5 +1,5 @@
 import { arrayAddUnique } from '../index';
-import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
+import { jestFunctionSignatureTest } from '@wezom/toolkit-jest-cjs';
 
 describe('Function signature should match specification', () => {
 	jestFunctionSignatureTest(arrayAddUnique, [
