@@ -1,5 +1,5 @@
 import { mathSum } from '../index';
-import { jestFunctionSignatureTest } from '@wezom/toolkit-jest-cjs';
+import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
 
 describe('Function signature should match specification', () => {
 	jestFunctionSignatureTest(mathSum, [
