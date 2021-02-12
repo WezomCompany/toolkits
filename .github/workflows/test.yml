@@ -15,5 +15,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install
         run: npm ci
-      - name: Build
-        run: npm run lerna:test
+      - name: Test
+        run: cd packages/math && npm run test
