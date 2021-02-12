@@ -1,6 +1,6 @@
-# @wezom/toolkit-jest
+# @wezom/toolkit-promise
 
-> _Useful tools for working with Jest_
+> _Useful tools for working with Promises_
 
 | Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -14,7 +14,7 @@
         - [ESNext](#esnext)
         - [CommonJS Version](#commonjs-version)
 1. [Tools](#usage)
-    1. [`jestFunctionSignatureTest()`](#jestfunctionsignaturetest)
+    1. [`promiseSleep()`](#promisesleep)
 1. [Contributing](#contributing)
 1. [License](#licence)
 
@@ -25,7 +25,7 @@
 ### Install npm package
 
 ```bash
-npm i @wezom/toolkit-jest
+npm i @wezom/toolkit-promise
 ```
 
 ### Import to your codebase
@@ -43,7 +43,7 @@ If you cannot change your bundler config or if you don not want to include _esne
 
 ```js
 // no ES6 features but ready for use as is, without transpiling
-import /* ... */ '@wezom/toolkit-jest/dist/index.cjs.js';
+import /* ... */ '@wezom/toolkit-promise/dist/index.cjs.js';
 ```
 
 ---
@@ -54,43 +54,29 @@ import /* ... */ '@wezom/toolkit-jest/dist/index.cjs.js';
 
 ## Tools
 
-### jestFunctionSignatureTest()
+### promiseSleep()
 
-[comment]: <> (AUTODOC-TOOL-START::function-signature-test#default)
+[comment]: <> (AUTODOC-TOOL-START::sleep#default)
 
-Function signature test with set of custom cases
+Sleep some milliseconds and resolve promise
 
 _Parameters:_
 
-| Name   | Data type | Argument | Default value | Description |
-| ------ | --------- | -------- | ------------- | ----------- |
-| method | `T`       |          |               |
-| cases  |           |          |               |
+| Name | Data type | Argument | Default value | Description |
+| ---- | --------- | -------- | ------------- | ----------- |
+| ms   | `number`  |          |               |
 
-_Returns:_ `void`
+_Returns:_ `Promise<void>`
 
 _Examples:_
 
 ```ts
-// x.ts
-export const x = (y: boolean, z: number, w: number): number | null => (y ? z + w : null);
-
-// x.spec.ts
-import x from 'x.ts';
-import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
-
-describe('Function signature should match specification', () => {
-	jestFunctionSignatureTest(x, [
-		{
-			parameters: [true, 4, 5],
-			expected: 9
-		},
-		{
-			parameters: [false, 4, 5],
-			expected: null
-		}
-	]);
-});
+promiseSleep(500).then(() => tryAgainSomeMethod());
+// or
+async function fakeSubmit() {
+	await promiseSleep(300);
+	return true;
+}
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)

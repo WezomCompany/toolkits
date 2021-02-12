@@ -1,6 +1,6 @@
-# @wezom/toolkit-jest
+# @wezom/toolkit-array
 
-> _Useful tools for working with Jest_
+> _Useful tools for working with Arrays_
 
 | Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -14,7 +14,10 @@
         - [ESNext](#esnext)
         - [CommonJS Version](#commonjs-version)
 1. [Tools](#usage)
-    1. [`jestFunctionSignatureTest()`](#jestfunctionsignaturetest)
+    1. [`arrayAddUnique()`](#arrayaddunique)
+    1. [`arrayClone()`](#arrayclone)
+    1. [`arrayRemoveItems()`](#arrayremoveitems)
+    1. [`arraySimpleRandomFn()`](#arraysimplerandomfn)
 1. [Contributing](#contributing)
 1. [License](#licence)
 
@@ -25,7 +28,7 @@
 ### Install npm package
 
 ```bash
-npm i @wezom/toolkit-jest
+npm i @wezom/toolkit-array
 ```
 
 ### Import to your codebase
@@ -43,7 +46,7 @@ If you cannot change your bundler config or if you don not want to include _esne
 
 ```js
 // no ES6 features but ready for use as is, without transpiling
-import /* ... */ '@wezom/toolkit-jest/dist/index.cjs.js';
+import /* ... */ '@wezom/toolkit-array/dist/index.cjs.js';
 ```
 
 ---
@@ -54,44 +57,65 @@ import /* ... */ '@wezom/toolkit-jest/dist/index.cjs.js';
 
 ## Tools
 
-### jestFunctionSignatureTest()
+### arrayAddUnique()
 
-[comment]: <> (AUTODOC-TOOL-START::function-signature-test#default)
+[comment]: <> (AUTODOC-TOOL-START::add-unique#default)
 
-Function signature test with set of custom cases
+Clones an array and puts only unique elements there
 
 _Parameters:_
 
-| Name   | Data type | Argument | Default value | Description |
-| ------ | --------- | -------- | ------------- | ----------- |
-| method | `T`       |          |               |
-| cases  |           |          |               |
+| Name      | Data type | Argument   | Default value | Description |
+| --------- | --------- | ---------- | ------------- | ----------- |
+| array     | `T[]`     |            |               |
+| items     | `T[]`     |            |               |
+| predicate |           | _optional_ | `...`         |
 
-_Returns:_ `void`
+_Returns:_ `T[]`
 
-_Examples:_
+[comment]: <> (AUTODOC-TOOL-END)
 
-```ts
-// x.ts
-export const x = (y: boolean, z: number, w: number): number | null => (y ? z + w : null);
+### arrayClone()
 
-// x.spec.ts
-import x from 'x.ts';
-import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
+[comment]: <> (AUTODOC-TOOL-START::clone#default)
 
-describe('Function signature should match specification', () => {
-	jestFunctionSignatureTest(x, [
-		{
-			parameters: [true, 4, 5],
-			expected: 9
-		},
-		{
-			parameters: [false, 4, 5],
-			expected: null
-		}
-	]);
-});
-```
+Clones array for immutable tasks
+
+_Parameters:_
+
+| Name  | Data type | Argument | Default value | Description |
+| ----- | --------- | -------- | ------------- | ----------- |
+| array | `T[]`     |          |               |
+
+_Returns:_ `T[]`
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+### arrayRemoveItems()
+
+[comment]: <> (AUTODOC-TOOL-START::remove-items#default)
+
+Clones an array and removes items
+
+_Parameters:_
+
+| Name      | Data type | Argument   | Default value | Description |
+| --------- | --------- | ---------- | ------------- | ----------- |
+| array     | `T[]`     |            |               |
+| items     | `T[]`     |            |               |
+| predicate |           | _optional_ | `...`         |
+
+_Returns:_ `T[]`
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+### arraySimpleRandomFn()
+
+[comment]: <> (AUTODOC-TOOL-START::simple-random-fn#default)
+
+Function for simple sorting of array elements in random order
+
+_Returns:_ `number`
 
 [comment]: <> (AUTODOC-TOOL-END)
 
