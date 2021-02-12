@@ -9,7 +9,6 @@
     "lerna:link": "lerna link convert",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:upgrade": "lerna init",
-    "test": "jest",
     "----------------------------- Publish": "***",
     "lerna:build": "lerna run build",
     "lerna:publish": "lerna publish",

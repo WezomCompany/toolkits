@@ -1,25 +1,5 @@
 {
-	"compilerOptions": {
-		"allowJs": true,
-		"baseUrl": "src",
-		"declaration": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"isolatedModules": true,
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"module": "esnext",
-		"moduleResolution": "node",
-		"noImplicitAny": true,
-		"noImplicitReturns": true,
-		"noImplicitThis": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": false,
-		"outDir": "dist",
-		"sourceMap": false,
-		"strict": true,
-		"strictNullChecks": true,
-		"suppressImplicitAnyIndexErrors": true
-	},
+	"extends": "./tsconfig.json",
 	"include": ["src/**/*.ts"],
 	"exclude": ["node_modules"]
 }

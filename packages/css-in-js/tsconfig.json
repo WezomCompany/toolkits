@@ -1,9 +1,4 @@
 {
 	"extends": "../../tsconfig.json",
-	"compilerOptions": {
-		"paths": {
-			"@wezom/toolkit-math": ["../packages/math/dist"]
-		}
-	},
-	"include": ["src/**/*.ts", "../math/**/*.ts"]
+	"include": ["src/**/*.ts"]
 }
