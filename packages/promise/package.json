@@ -1,7 +1,7 @@
 {
 	"name": "@wezom/toolkit-promise",
-	"version": "1.2.0-beta.0",
-  "description": "Useful tools for working with Promises",
+	"version": "2.0.0",
+	"description": "Useful tools for working with Promises",
 	"main": "dist/index.js",
 	"files": [
 		"dist"
@@ -9,18 +9,18 @@
 	"scripts": {
 		"build": "npm run build:clen-prev && npm run build:esnext && npm run build:cjs && npm run build:re-structure && npm run build:clean-cjs && npm run build:format",
 		"autodoc": "npm run autodoc:typedoc && npm run autodoc:inject",
-    "test": "npm run prettier && npm run eslint && npm run jest",
-    "test:autofix": "npm run prettier:autofix && npm run eslint:autofix && npm run jest:coverage",
+		"test": "npm run prettier && npm run eslint && npm run jest",
+		"test:autofix": "npm run prettier:autofix && npm run eslint:autofix && npm run jest:coverage",
 		"----------------------------------------------- BUILD": "SECTION",
-    "build:clen-prev": "del-cli dist",
-    "build:esnext": "tsc",
-    "build:cjs": "tsc --project tsconfig.cjs.json",
-    "build:re-structure": "node ../../utils/re-structure-cjs-dist.js",
-    "build:clean-cjs": "del-cli dist/cjs",
-    "build:format": "prettier dist/**/*.{d.ts,js} --check --write",
+		"build:clen-prev": "del-cli dist",
+		"build:esnext": "tsc",
+		"build:cjs": "tsc --project tsconfig.cjs.json",
+		"build:re-structure": "node ../../utils/re-structure-cjs-dist.js",
+		"build:clean-cjs": "del-cli dist/cjs",
+		"build:format": "prettier dist/**/*.{d.ts,js} --check --write",
 		"----------------------------------------------- AUTODOC": "SECTION",
-    "autodoc:typedoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js",
-    "autodoc:inject": "node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
+		"autodoc:typedoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js",
+		"autodoc:inject": "node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
 		"----------------------------------------------- TEST": "SECTION",
 		"prettier": "prettier \"./src/**/*.ts\" --check",
 		"prettier:autofix": "npm run prettier -- --write",
@@ -39,18 +39,18 @@
 		"toolkit",
 		"toolbox",
 		"Promise",
-    "async",
-    "await",
-    "sleep"
+		"async",
+		"await",
+		"sleep"
 	],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WezomCompany/toolkits.git"
-  },
-  "bugs": {
-    "url": "https://github.com/WezomCompany/toolkits/issues"
-  },
-  "homepage": "https://github.com/WezomCompany/toolkits/tree/main/packages/promise#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/WezomCompany/toolkits.git"
+	},
+	"bugs": {
+		"url": "https://github.com/WezomCompany/toolkits/issues"
+	},
+	"homepage": "https://github.com/WezomCompany/toolkits/tree/main/packages/promise#readme",
 	"publishConfig": {
 		"access": "public"
 	}
