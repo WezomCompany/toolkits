@@ -25,7 +25,7 @@
 ### Install npm package
 
 ```bash
-npm i @wezom/toolkit-promise
+npm i @wezom/toolkit-jest
 ```
 
 ### Import to your codebase

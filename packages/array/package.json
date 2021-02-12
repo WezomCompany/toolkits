@@ -39,7 +39,13 @@
 		"toolkit",
 		"toolbox",
 		"array",
-    "immutable"
+    "immutable",
+    "clone",
+    "add",
+    "unique",
+    "remove",
+    "items",
+    "random"
 	],
   "repository": {
     "type": "git",

@@ -25,7 +25,7 @@
 ### Install npm package
 
 ```bash
-npm i @wezom/toolkit-promise
+npm i @wezom/toolkit-math
 ```
 
 ### Import to your codebase
@@ -68,6 +68,31 @@ _Parameters:_
 | exp   | `number`  | _optional_ |               |
 
 _Returns:_ `number`
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### mathSum()
+
+[comment]: <> (AUTODOC-TOOL-START::sum#default)
+
+Calculates the sum of all arguments
+
+_Parameters:_
+
+| Name    | Data type     | Argument | Default value | Description |
+| ------- | ------------- | -------- | ------------- | ----------- |
+| numbers | `...number[]` |          |               |
+
+_Returns:_ `number`
+
+_Examples:_
+
+```ts
+mathSum(1, 3, 5); // => 9
+mathSum(1.01, 1.02); // => 2.03
+```
 
 [comment]: <> (AUTODOC-TOOL-END)
 

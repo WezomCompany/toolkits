@@ -38,7 +38,10 @@
 		"@wezom",
 		"toolkit",
 		"toolbox",
-		"math"
+		"Promise",
+    "async",
+    "await",
+    "sleep"
 	],
   "repository": {
     "type": "git",

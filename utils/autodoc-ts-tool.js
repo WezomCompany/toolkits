@@ -7,31 +7,29 @@ const toolsTypeDocPath = fromCWD('.cache/typedoc.normalized.json');
 const toolsFileContent = fs.readFileSync(toolsFilePath).toString();
 const toolsTypeDoc = JSON.parse(fs.readFileSync(toolsTypeDocPath).toString());
 
-const _code = (value) => (value === undefined ? '' : `\`${value}\``);
-const _trimCode = (value) => (value.length >= 3 ? value.slice(1, -1) : '');
+const _code = (value, isRest) =>
+	value === undefined ? '' : `\`${isRest ? '...' : ''}${value}\``;
+const _trimCode = (value) => value.replace(/^`|`$/g, '');
 const _parseTrimJoin = (arr, joiner) => arr.map(_parseType).map(_trimCode).join(joiner);
-const _parseType = (docType) => {
+const _parseType = (docType, { isRest } = {}) => {
 	switch (docType.type) {
 		case 'intrinsic':
-			return _code(docType.name);
+			return _code(docType.name, isRest);
 		case 'reference':
 			if (Array.isArray(docType.typeArguments)) {
 				const tArgs = _parseTrimJoin(docType.typeArguments, ' / ');
 				if (tArgs.length) {
-					return _code(`${docType.name}<${tArgs}>`);
+					return _code(`${docType.name}<${tArgs}>`, isRest);
 				}
 			}
-			return _code(docType.name);
+			return _code(docType.name, isRest);
 		case 'array':
-			switch (docType.elementType.type) {
-				case 'reference':
-					return _code(docType.elementType.name + '[]');
-			}
-			break;
+			const _type = _parseType(docType.elementType, { isRest });
+			return _type ? _code(_trimCode(_type) + '[]') : _type;
 		case 'intersection':
-			return _code(_parseTrimJoin(docType.types, ' & '));
+			return _code(_parseTrimJoin(docType.types, ' & '), isRest);
 		case 'union':
-			return _code(_parseTrimJoin(docType.types, ' / '));
+			return _code(_parseTrimJoin(docType.types, ' / '), isRest);
 		default:
 			return '';
 	}
@@ -62,7 +60,9 @@ const newToolsFileContent = toolsFileContent.replace(regExp, (str, g1, g2, g3, g
 					...parameters
 						.map((parameter) => {
 							const { flags = {}, comment = {}, type = {} } = parameter;
-							const dataType = _parseType(type);
+							const dataType = _parseType(type, {
+								isRest: flags.isRest
+							});
 							return (
 								'| ' +
 								[
