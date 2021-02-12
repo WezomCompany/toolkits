@@ -7,17 +7,15 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:clen-prev && npm run build:esnext && npm run build:cjs && npm run build:re-structure && npm run build:clean-cjs && npm run build:format",
+    "build": "npm run build:clen-prev && npm run build:esnext && npm run build:cjs && npm run build:format",
     "autodoc": "npm run autodoc:typedoc && npm run autodoc:inject",
     "test": "npm run prettier && npm run eslint && npm run jest",
     "test:autofix": "npm run prettier:autofix && npm run eslint:autofix && npm run jest:coverage",
     "----------------------------------------------- BUILD": "SECTION",
-    "build:clen-prev": "del-cli dist",
+    "build:clen-prev": "del-cli dist && del-cli ../css-in-js-cjs/dist --force",
     "build:esnext": "tsc",
-    "build:cjs": "tsc --project tsconfig.cjs.json",
-    "build:re-structure": "node ../../utils/re-structure-cjs-dist.js",
-    "build:clean-cjs": "del-cli dist/cjs",
-    "build:format": "prettier dist/**/*.{d.ts,js} --check --write",
+    "build:cjs": "rollup -c rollup.config.js",
+    "build:format": "prettier dist/**/*.{d.ts,js} --check --write && prettier ../css-in-js-cjs/dist/**/*.{d.ts,js} --check --write",
     "----------------------------------------------- AUTODOC": "SECTION",
     "autodoc:typedoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js",
     "autodoc:inject": "node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
@@ -53,7 +51,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@wezom/toolkit-jest": "file:../jest"
+    "@wezom/toolkit-jest-cjs": "file:../jest-cjs"
   },
   "dependencies": {
     "@wezom/toolkit-math": "file:../math"

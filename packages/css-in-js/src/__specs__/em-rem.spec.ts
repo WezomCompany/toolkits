@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 import { jssEm, jssRem } from '../index';
-import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
+import { jestFunctionSignatureTest } from '@wezom/toolkit-jest-cjs';
 
 // -----------------------------------------------------------------------------
 // Tests

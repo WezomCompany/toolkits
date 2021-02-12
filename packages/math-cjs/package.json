@@ -1,0 +1,38 @@
+{
+  "name": "@wezom/toolkit-math-cjs",
+  "version": "2.0.0",
+  "description": "Useful math tools. CommonJS distribution version",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "echo Skip",
+    "autodoc": "echo Skip",
+    "test": "echo Skip",
+    "test:autofix": "echo Skip"
+  },
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Oleg Dutchenko",
+    "email": "dutchenko.o.dev@gmail.com"
+  },
+  "keywords": [
+    "@wezom",
+    "toolkit",
+    "toolbox",
+    "math",
+    "commonjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WezomCompany/toolkits.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WezomCompany/toolkits/issues"
+  },
+  "homepage": "https://github.com/WezomCompany/toolkits/tree/main/packages/math-cjs#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 import { jssUnitExtract, jssUnitLess, jssRem, jssEm, jssPercentage } from '../index';
-import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
+import { jestFunctionSignatureTest } from '@wezom/toolkit-jest-cjs';
 
 // -----------------------------------------------------------------------------
 // Tests

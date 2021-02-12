@@ -1,4 +1,4 @@
-name: All packages builds
+name: All packages build
 
 on: [pull_request]
 

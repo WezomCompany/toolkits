@@ -4,11 +4,16 @@
 
 ## Packages:
 
-- [@wezom/toolkit-array](https://github.com/WezomCompany/toolkits/blob/main/packages/array/README.md#readme)
-- [@wezom/toolkit-css-in-js](https://github.com/WezomCompany/toolkits/blob/main/packages/css-in-js/README.md#readme)
-- [@wezom/toolkit-jest](https://github.com/WezomCompany/toolkits/blob/main/packages/jest/README.md#readme)
-- [@wezom/toolkit-math](https://github.com/WezomCompany/toolkits/blob/main/packages/math/README.md#readme)
-- [@wezom/toolkit-promise](https://github.com/WezomCompany/toolkits/blob/main/packages/promise/README.md#readme)
+1. [@wezom/toolkit-array](https://github.com/WezomCompany/toolkits/blob/main/packages/array/README.md#readme)
+    - CommonJS distribution version [@wezom/toolkit-array-cjs](https://github.com/WezomCompany/toolkits/blob/main/packages/array-cjs/README.md#readme)
+1. [@wezom/toolkit-css-in-js](https://github.com/WezomCompany/toolkits/blob/main/packages/css-in-js/README.md#readme)
+    - CommonJS distribution version [@wezom/toolkit-css-in-js-cjs](https://github.com/WezomCompany/toolkits/blob/main/packages/css-in-js-cjs/README.md#readme)
+1. [@wezom/toolkit-jest](https://github.com/WezomCompany/toolkits/blob/main/packages/jest/README.md#readme)
+    - CommonJS distribution version [@wezom/toolkit-jest-cjs](https://github.com/WezomCompany/toolkits/blob/main/packages/jest-cjs/README.md#readme)
+1. [@wezom/toolkit-math](https://github.com/WezomCompany/toolkits/blob/main/packages/math/README.md#readme)
+    - CommonJS distribution version [@wezom/toolkit-math-cjs](https://github.com/WezomCompany/toolkits/blob/main/packages/math-cjs/README.md#readme)
+1. [@wezom/toolkit-promise](https://github.com/WezomCompany/toolkits/blob/main/packages/promise/README.md#readme)
+    - CommonJS distribution version [@wezom/toolkit-promise-cjs](https://github.com/WezomCompany/toolkits/blob/main/packages/promise-cjs/README.md#readme)
 
 ---
 
