@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [15.x]
@@ -16,4 +16,4 @@ jobs:
       - name: Install
         run: npm ci
       - name: Test
-        run: cd packages/css-in-js && npm run test
+        run: npm run test
