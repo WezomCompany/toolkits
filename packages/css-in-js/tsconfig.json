@@ -20,7 +20,7 @@
 		"strictNullChecks": true,
 		"suppressImplicitAnyIndexErrors": true
 	},
-	"include": ["src/**/*.ts"],
+	"include": ["src/**/*.ts", "../math/**/*.ts"],
 	"exclude": [
 		"./node_modules",
 		"**/__tests__/**",
