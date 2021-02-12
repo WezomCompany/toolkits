@@ -1,0 +1,39 @@
+{
+  "name": "@wezom/toolkit-jest-cjs",
+  "version": "2.0.0",
+  "description": "Useful tools for working with Jest. CommonJS distribution version",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "echo Skip",
+    "autodoc": "echo Skip",
+    "test": "echo Skip",
+    "test:autofix": "echo Skip"
+  },
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Oleg Dutchenko",
+    "email": "dutchenko.o.dev@gmail.com"
+  },
+  "keywords": [
+    "@wezom",
+    "toolkit",
+    "toolbox",
+    "jest",
+    "ts-jest",
+    "commonjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WezomCompany/toolkits.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WezomCompany/toolkits/issues"
+  },
+  "homepage": "https://github.com/WezomCompany/toolkits/tree/main/packages/jest-cjs#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -9,10 +9,9 @@
 ## Table of Content:
 
 1. [Usage](#usage)
-    1. [Install npm package](#install-npm-package)
-    1. [Import to your codebase](#import-to-your-codebase)
-        - [ESNext](#esnext)
-        - [CommonJS Version](#commonjs-version)
+    - [ESNext distribution version](#esnext-distribution-version)
+    - [CommonJS distribution version](#commonjs-distribution-version)
+    - [Install the chosen npm package](#install-the-chosen-npm-package)
 1. [Tools](#usage)
     1. [`mathRound()`](#mathround)
 1. [Contributing](#contributing)
@@ -22,28 +21,27 @@
 
 ## Usage
 
-### Install npm package
-
-```bash
-npm i @wezom/toolkit-math
-```
-
-### Import to your codebase
-
-#### ESNext
+### ESNext distribution version
 
 We use TypeScript as main development language and distribute our lib in the maximum compliance with modern JavaScript specifications.
-You project bundler (webpack or something else) must not exclude this installed package from `node_modules` folder.
+
+Your project bundler (webpack or something else) should not exclude this installed package from `node_modules` folder for the transpilation process.
 
 _The package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/package/babel-loader-exclude-node-modules-except) can help you with this_
 
-#### CommonJS Version
+### CommonJS distribution version
 
-If you cannot change your bundler config or if you don not want to include _esnext_ code version into your project - for this we have compiled CommonJS version of each library file and **you can import `*.cjs.js` files**. They ready to use without excluding `node_modules` and else. These files may have redundant code that is necessary for them to work "out of the box". And they will also be deprived of all the features of the _ESNext_ specifications.
+If you cannot change your bundler config or if you do not want to include _ESNext_ code version into your project - for this we have compiled CommonJS distribution version.
 
-```js
-// no ES6 features but ready for use as is, without transpiling
-import /* ... */ '@wezom/toolkit-math/dist/index.cjs.js';
+You can install [`@wezom/toolkit-math-cjs`](https://github.com/WezomCompany/toolkits/blob/main/packages/math-cjs/README.md#readme) instead of the current package.
+
+### Install the chosen npm package
+
+```bash
+# esnext version
+npm i @wezom/toolkit-math
+# or commonjs
+npm i @wezom/toolkit-math-cjs
 ```
 
 ---

@@ -1,9 +1,6 @@
 lerna.json
 package.json
 package-lock.json
-packages/css-in-js/.cache
-packages/css-in-js/coverage
-packages/css-in-js/dist
-packages/jest/.cache
-packages/jest/coverage
-packages/jest/dist
+.cache
+coverage
+dist
