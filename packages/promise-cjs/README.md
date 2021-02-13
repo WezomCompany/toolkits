@@ -1,6 +1,6 @@
 # @wezom/toolkit-promise-cjs
 
-**This is CommonJS distribution version.**
+**This is CommonJS distribution version**
 
 See full description in the original package [@wezom/toolkit-promise](https://github.com/WezomCompany/toolkits/blob/main/packages/promise/README.md#readme)
 
