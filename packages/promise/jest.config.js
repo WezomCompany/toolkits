@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 const tsConfig = require('./tsconfig.json');
-const globalConfig = require('../../globa.jest.config');
+const globalConfig = require('../../global.jest.config');
 
 // -----------------------------------------------------------------------------
 // Jest config

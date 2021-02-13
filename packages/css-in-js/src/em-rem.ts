@@ -39,11 +39,11 @@ function _convert(
  *  jssEm(20, [30, 10, 45], ', '); // => '1.5em, 0.5em, 2.25em'
  */
 export function jssEm(
-	remSize: number,
+	emSize: number,
 	pixels: PixelValue[],
 	joiner: Joiner = ' '
 ): string {
-	return _convert(remSize, pixels, 'em', joiner);
+	return _convert(emSize, pixels, 'em', joiner);
 }
 
 /**
