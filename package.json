@@ -2,16 +2,16 @@
   "name": "toolkits",
   "private": true,
   "scripts": {
+    "lerna:prepare": "npm run lerna:test:autofix && npm run lerna:autodoc && npm run lerna:link && npm run lerna:bootstrap && npm run lerna:build",
+    "lerna:publish": "lerna publish",
     "----------------------------- Lerna": "***",
+    "lerna:build": "lerna run build",
     "lerna:test": "npm run prettier-utils && lerna run test",
     "lerna:test:autofix": "npm run prettier-utils:fix && lerna run test:autofix",
     "lerna:autodoc": "lerna run autodoc",
     "lerna:link": "lerna link convert",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:upgrade": "lerna init",
-    "----------------------------- Publish": "***",
-    "lerna:build": "lerna run build",
-    "lerna:publish": "lerna publish",
     "----------------------------- Prettier": "***",
     "prettier-utils": "prettier ./utils --check",
     "prettier-utils:fix": "npm run prettier-utils -- --write"
@@ -35,6 +35,9 @@
     "typedoc": "^0.20.23",
     "typescript": "^4.1.3"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "@wezom/toolkit-array": "file:packages\\array",
     "@wezom/toolkit-array-cjs": "file:packages\\array-cjs",
