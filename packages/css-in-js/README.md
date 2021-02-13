@@ -254,11 +254,11 @@ jssClamp(jssRem(24), '10%', jssRem(64)); // 'max(1.5rem, min(10%, 4rem))'
 
 _Parameters:_
 
-| Name    | Data type      | Argument   | Default value | Description |
-| ------- | -------------- | ---------- | ------------- | ----------- |
-| remSize | `number`       |            |               |
-| pixels  | `PixelValue[]` |            |               |
-| joiner  | `Joiner`       | _optional_ | `' '`         |
+| Name   | Data type      | Argument   | Default value | Description |
+| ------ | -------------- | ---------- | ------------- | ----------- |
+| emSize | `number`       |            |               |
+| pixels | `PixelValue[]` |            |               |
+| joiner | `Joiner`       | _optional_ | `' '`         |
 
 _Returns:_ `string`
 
