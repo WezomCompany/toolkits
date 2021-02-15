@@ -1,6 +1,6 @@
 {
   "name": "@wezom/toolkit-promise-cjs",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "Useful tools for working with Promises. CommonJS distribution version.",
   "main": "dist/index.js",
   "files": [
