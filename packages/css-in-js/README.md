@@ -13,24 +13,29 @@
     - [CommonJS distribution version](#commonjs-distribution-version)
     - [Install the chosen npm package](#install-the-chosen-npm-package)
 1. [Tools](#usage)
-    1. [`jssAbsoluteCenter()`](#jssabsolutecenter)
-    1. [`jssAbsoluteGap()`](#jssabsolutecenter)
-    1. [`jssAbsoluteSquare()`](#jssabsolutecenter)
-    1. [`jssChangeJoiner()`](#jsschangejoiner)
-    1. [`jssClamp()`](#jssclamp)
-    1. [`jssClampHack()`](#jssclamphack)
-    1. [`jssConvertPixels()`](#jssconvertpixels)
-    1. [`jssEm()`](#jssem)
-    1. [`jssFontFaceSrc()`](#jssfontfacesrc)
-    1. [`jssMax()`](#jssmax)
-    1. [`jssMin()`](#jssmin)
-    1. [`jssPercentage()`](#jsspercentage)
-    1. [`jssRem()`](#jssrem)
-    1. [`jssRemDefined()`](#jssremdefined)
-    1. [`jssSetPreDefinedRemSize()`](#jsssetpredefinedremsize)
-    1. [`jssSplitAndChangeJoiner()`](#jsssplitandchangejoiner)
-    1. [`jssUnitExtract()`](#jssunitextract)
-    1. [`jssUnitLess()`](#jssunitless)
+    - [Absolute position](#absolute-position)
+        - [`jssAbsoluteCenter()`](#jssabsolutecenter)
+        - [`jssAbsoluteGap()`](#jssabsolutecenter)
+        - [`jssAbsoluteSquare()`](#jssabsolutecenter)
+    - [Dividers](#dividers)
+        - [`jssSplitAndChangeJoiner()`](#jsssplitandchangejoiner)
+        - [`jssChangeJoiner()`](#jsschangejoiner)
+    - [CSS min-max](#css-min-max)
+        - [`jssClamp()`](#jssclamp)
+        - [`jssClampHack()`](#jssclamphack)
+        - [`jssMax()`](#jssmax)
+        - [`jssMin()`](#jssmin)
+    - [CSS units](#css-units)
+        - [`jssConvertPixels()`](#jssconvertpixels)
+        - [`jssEm()`](#jssem)
+        - [`jssRem()`](#jssrem)
+        - [`jssRemDefined()`](#jssremdefined)
+        - [`jssSetPreDefinedRemSize()`](#jsssetpredefinedremsize)
+        - [`jssPercentage()`](#jsspercentage)
+        - [`jssUnitExtract()`](#jssunitextract)
+        - [`jssUnitLess()`](#jssunitless)
+    - [Fonts](#fonts)
+        - [`jssFontFaceSrc()`](#jssfontfacesrc)
 1. [Contributing](#contributing)
 1. [License](#licence)
 
@@ -69,7 +74,9 @@ npm i @wezom/toolkit-css-in-js-cjs
 
 ## Tools
 
-### jssAbsoluteCenter()
+### Absolute position
+
+#### `jssAbsoluteCenter()`
 
 [comment]: <> (AUTODOC-TOOL-START::absolute-center#default)
 
@@ -111,7 +118,7 @@ _Examples:_
 
 ---
 
-### jssAbsoluteGap()
+#### `jssAbsoluteGap()`
 
 [comment]: <> (AUTODOC-TOOL-START::absolute-gap#default)
 
@@ -153,7 +160,7 @@ _Examples:_
 
 ---
 
-### jssAbsoluteSquare()
+#### `jssAbsoluteSquare()`
 
 [comment]: <> (AUTODOC-TOOL-START::absolute-square#default)
 
@@ -199,7 +206,36 @@ _Examples:_
 
 ---
 
-### jssChangeJoiner()
+### Dividers
+
+#### `jssSplitAndChangeJoiner()`
+
+[comment]: <> (AUTODOC-TOOL-START::dividers#jssSplitAndChangeJoiner)
+
+Low level method
+
+_Parameters:_
+
+| Name    | Data type | Argument | Default value | Description |
+| ------- | --------- | -------- | ------------- | ----------- |
+| string  | `string`  |          |               |
+| splitBy | `string`  |          |               |
+| joiner  | `string`  |          |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssChangeJoiner('0 4px auto', ' ', ', '); // => '0, 4px, auto'
+jssChangeJoiner('0 4px auto', ' ', '~*~'); // => '0~*~4px~*~auto' ;)
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+#### `jssChangeJoiner()`
 
 [comment]: <> (AUTODOC-TOOL-START::dividers#jssChangeJoiner)
 
@@ -225,7 +261,11 @@ jssChangeJoiner('0 4px auto', '~*~'); // => '0~*~4px~*~auto' ;)
 
 ---
 
-### jssClamp()
+### CSS min-max
+
+---
+
+#### `jssClamp()`
 
 [comment]: <> (AUTODOC-TOOL-START::min-max-clamp#jssClamp)
 
@@ -252,7 +292,7 @@ jssClamp(jssRem(24), '10%', jssRem(64)); // 'clamp(1.5rem, 10%, 4rem)'
 
 ---
 
-### jssClampHack()
+#### `jssClampHack()`
 
 [comment]: <> (AUTODOC-TOOL-START::min-max-clamp#jssClampHack)
 
@@ -279,7 +319,61 @@ jssClamp(jssRem(24), '10%', jssRem(64)); // 'max(1.5rem, min(10%, 4rem))'
 
 ---
 
-### jssConvertPixels()
+#### `jssMax()`
+
+[comment]: <> (AUTODOC-TOOL-START::min-max-clamp#jssMax)
+
+Generate css math function `max(a, b)`
+
+_Parameters:_
+
+| Name | Data type | Argument | Default value | Description |
+| ---- | --------- | -------- | ------------- | ----------- |
+| a    | `Operand` |          |               |
+| b    | `Operand` |          |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssMax('5vw', '50px'); // 'max(5vw, 50px)'
+jssMax('5vw', jssRem(64)); // 'max(5vw, 4rem)'
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+#### `jssMin()`
+
+[comment]: <> (AUTODOC-TOOL-START::min-max-clamp#jssMin)
+
+Generate css math function `min(a, b)`
+
+_Parameters:_
+
+| Name | Data type | Argument | Default value | Description |
+| ---- | --------- | -------- | ------------- | ----------- |
+| a    | `Operand` |          |               |
+| b    | `Operand` |          |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssMin('5vw', '50px'); // 'min(5vw, 50px)'
+jssMin('5vw', jssRem(64)); // 'min(5vw, 4rem)'
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### CSS units
+
+#### `jssConvertPixels()`
 
 [comment]: <> (AUTODOC-TOOL-START::em-rem#jssConvertPixels)
 
@@ -300,7 +394,7 @@ _Returns:_ `string`
 
 ---
 
-### jssEm()
+#### `jssEm()`
 
 [comment]: <> (AUTODOC-TOOL-START::em-rem#jssEm)
 
@@ -329,85 +423,91 @@ jssEm(20, 30, 10, 45); // => '1.5em 0.5em 2.25em'
 
 ---
 
-### jssFontFaceSrc()
+#### `jssRem()`
 
-[comment]: <> (AUTODOC-TOOL-START::font-face-src#default)
+[comment]: <> (AUTODOC-TOOL-START::em-rem#jssRem)
 
-Returns string font-face src value
+High level converter from px to rem
 
 _Parameters:_
 
-| Name  | Data type | Argument | Default value | Description |
-| ----- | --------- | -------- | ------------- | ----------- |
-| woff2 | `string`  |          |               |
-| woff  | `string`  |          |               |
+| Name    | Data type         | Argument | Default value | Description |
+| ------- | ----------------- | -------- | ------------- | ----------- |
+| remSize | `number`          |          |               |
+| pixels  | `...PixelValue[]` |          |               |
 
 _Returns:_ `string`
 
 _Examples:_
 
 ```ts
-const src = jssFontFaceSrc('fonts/my.woff2', 'fonts/my.woff');
-// => "url('/fonts/my.woff2') format('woff2'), url('/fonts/my.woff') format('woff')"
+jssRem(16, 16); // => '1rem'
+jssRem(16, 16, 'auto'); // => '1rem auto'
+jssRem(16, -8, 0); // => '-0.5rem 0'
+jssRem(16, 24, 32, 48); // => '1.5rem 2rem 3rem'
+jssRem(20, 30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)
 
 ---
 
-### jssMax()
+#### `jssRemDefined()`
 
-[comment]: <> (AUTODOC-TOOL-START::min-max-clamp#jssMax)
+[comment]: <> (AUTODOC-TOOL-START::em-rem#jssRemDefined)
 
-Generate css math function `max(a, b)`
+High level converter from px to rem with pre-defined rem size
+By default rem size used as 16px;
+
+_Parameters:_
+
+| Name   | Data type         | Argument | Default value | Description |
+| ------ | ----------------- | -------- | ------------- | ----------- |
+| pixels | `...PixelValue[]` |          |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssRemDefined(16); // => '1rem'
+jssRemDefined(16, 'auto'); // => '1rem auto'
+jssRemDefined(-8, 0); // => '-0.5rem 0'
+jssRemDefined(24, 32, 48); // => '1.5rem 2rem 3rem'
+jssRemDefined(30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+#### `jssSetPreDefinedRemSize()`
+
+[comment]: <> (AUTODOC-TOOL-START::em-rem#jssSetPreDefinedRemSize)
+
+Change pre-defined rem size.
 
 _Parameters:_
 
 | Name | Data type | Argument | Default value | Description |
 | ---- | --------- | -------- | ------------- | ----------- |
-| a    | `Operand` |          |               |
-| b    | `Operand` |          |               |
+| size | `number`  |          |               |
 
-_Returns:_ `string`
+_Returns:_ `void`
 
 _Examples:_
 
 ```ts
-jssMax('5vw', '50px'); // 'max(5vw, 50px)'
-jssMax('5vw', jssRem(64)); // 'max(5vw, 4rem)'
+jssRemDefined(20); // => '1.25rem'
+jssSetPreDefinedRemSize(20);
+jssRemDefined(20); // => '1rem'
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)
 
 ---
 
-### jssMin()
-
-[comment]: <> (AUTODOC-TOOL-START::min-max-clamp#jssMin)
-
-Generate css math function `min(a, b)`
-
-_Parameters:_
-
-| Name | Data type | Argument | Default value | Description |
-| ---- | --------- | -------- | ------------- | ----------- |
-| a    | `Operand` |          |               |
-| b    | `Operand` |          |               |
-
-_Returns:_ `string`
-
-_Examples:_
-
-```ts
-jssMin('5vw', '50px'); // 'min(5vw, 50px)'
-jssMin('5vw', jssRem(64)); // 'min(5vw, 4rem)'
-```
-
-[comment]: <> (AUTODOC-TOOL-END)
-
----
-
-### jssPercentage()
+### `jssPercentage()`
 
 [comment]: <> (AUTODOC-TOOL-START::percentage#default)
 
@@ -437,118 +537,7 @@ jssPercentage(9, 16, true, 1); // => 56.2
 
 ---
 
-### jssRem()
-
-[comment]: <> (AUTODOC-TOOL-START::em-rem#jssRem)
-
-High level converter from px to rem
-
-_Parameters:_
-
-| Name    | Data type         | Argument | Default value | Description |
-| ------- | ----------------- | -------- | ------------- | ----------- |
-| remSize | `number`          |          |               |
-| pixels  | `...PixelValue[]` |          |               |
-
-_Returns:_ `string`
-
-_Examples:_
-
-```ts
-jssRem(16, 16); // => '1rem'
-jssRem(16, 16, 'auto'); // => '1rem auto'
-jssRem(16, -8, 0); // => '-0.5rem 0'
-jssRem(16, 24, 32, 48); // => '1.5rem 2rem 3rem'
-jssRem(20, 30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
-```
-
-[comment]: <> (AUTODOC-TOOL-END)
-
----
-
-### jssRemDefined()
-
-[comment]: <> (AUTODOC-TOOL-START::em-rem#jssRemDefined)
-
-High level converter from px to rem with pre-defined rem size
-By default rem size used as 16px;
-
-_Parameters:_
-
-| Name   | Data type         | Argument | Default value | Description |
-| ------ | ----------------- | -------- | ------------- | ----------- |
-| pixels | `...PixelValue[]` |          |               |
-
-_Returns:_ `string`
-
-_Examples:_
-
-```ts
-jssRemDefined(16); // => '1rem'
-jssRemDefined(16, 'auto'); // => '1rem auto'
-jssRemDefined(-8, 0); // => '-0.5rem 0'
-jssRemDefined(24, 32, 48); // => '1.5rem 2rem 3rem'
-jssRemDefined(30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
-```
-
-[comment]: <> (AUTODOC-TOOL-END)
-
----
-
-### jssSetPreDefinedRemSize()
-
-[comment]: <> (AUTODOC-TOOL-START::em-rem#jssSetPreDefinedRemSize)
-
-Change pre-defined rem size.
-
-_Parameters:_
-
-| Name | Data type | Argument | Default value | Description |
-| ---- | --------- | -------- | ------------- | ----------- |
-| size | `number`  |          |               |
-
-_Returns:_ `void`
-
-_Examples:_
-
-```ts
-jssRemDefined(20); // => '1.25rem'
-jssSetPreDefinedRemSize(20);
-jssRemDefined(20); // => '1rem'
-```
-
-[comment]: <> (AUTODOC-TOOL-END)
-
----
-
-### jssSplitAndChangeJoiner()
-
-[comment]: <> (AUTODOC-TOOL-START::dividers#jssSplitAndChangeJoiner)
-
-Low level method
-
-_Parameters:_
-
-| Name    | Data type | Argument | Default value | Description |
-| ------- | --------- | -------- | ------------- | ----------- |
-| string  | `string`  |          |               |
-| splitBy | `string`  |          |               |
-| joiner  | `string`  |          |               |
-
-_Returns:_ `string`
-
-_Examples:_
-
-```ts
-jssChangeJoiner('0 4px auto', ' ', ', '); // => '0, 4px, auto'
-jssChangeJoiner('0 4px auto', ' ', '~*~'); // => '0~*~4px~*~auto' ;)
-```
-
-[comment]: <> (AUTODOC-TOOL-END)
-
----
-
-### jssUnitExtract()
+#### `jssUnitExtract()`
 
 [comment]: <> (AUTODOC-TOOL-START::units#jssUnitExtract)
 
@@ -576,7 +565,7 @@ jssUnitExtract('56.25%'); // '%'
 
 ---
 
-### jssUnitLess()
+#### `jssUnitLess()`
 
 [comment]: <> (AUTODOC-TOOL-START::units#jssUnitLess)
 
@@ -597,6 +586,34 @@ jssUnitLess('3rem'); // 4
 jssUnitLess(jssEm(16, [64])); // 4
 jssUnitLess('-20px'); // -20
 jssUnitLess('56.25%'); // 56.25
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### Fonts
+
+#### `jssFontFaceSrc()`
+
+[comment]: <> (AUTODOC-TOOL-START::font-face-src#default)
+
+Returns string font-face src value
+
+_Parameters:_
+
+| Name  | Data type | Argument | Default value | Description |
+| ----- | --------- | -------- | ------------- | ----------- |
+| woff2 | `string`  |          |               |
+| woff  | `string`  |          |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+const src = jssFontFaceSrc('fonts/my.woff2', 'fonts/my.woff');
+// => "url('/fonts/my.woff2') format('woff2'), url('/fonts/my.woff') format('woff')"
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)
