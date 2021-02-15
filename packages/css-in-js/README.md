@@ -2,9 +2,9 @@
 
 > _Useful tools for working with CSS-in-JS_
 
-| Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| Statements                                                                  | Branches                                                                  | Functions                                                                    | Lines                                                                  |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-94.59%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -16,14 +16,19 @@
     1. [`jssAbsoluteCenter()`](#jssabsolutecenter)
     1. [`jssAbsoluteGap()`](#jssabsolutecenter)
     1. [`jssAbsoluteSquare()`](#jssabsolutecenter)
+    1. [`jssChangeJoiner()`](#jsschangejoiner)
     1. [`jssClamp()`](#jssclamp)
     1. [`jssClampHack()`](#jssclamphack)
+    1. [`jssConvertPixels()`](#jssconvertpixels)
     1. [`jssEm()`](#jssem)
     1. [`jssFontFaceSrc()`](#jssfontfacesrc)
     1. [`jssMax()`](#jssmax)
     1. [`jssMin()`](#jssmin)
     1. [`jssPercentage()`](#jsspercentage)
     1. [`jssRem()`](#jssrem)
+    1. [`jssRemDefined()`](#jssremdefined)
+    1. [`jssSetPreDefinedRemSize()`](#jsssetpredefinedremsize)
+    1. [`jssSplitAndChangeJoiner()`](#jsssplitandchangejoiner)
     1. [`jssUnitExtract()`](#jssunitextract)
     1. [`jssUnitLess()`](#jssunitless)
 1. [Contributing](#contributing)
@@ -194,6 +199,32 @@ _Examples:_
 
 ---
 
+### jssChangeJoiner()
+
+[comment]: <> (AUTODOC-TOOL-START::dividers#jssChangeJoiner)
+
+High level joiner from `' '` to new value
+
+_Parameters:_
+
+| Name   | Data type | Argument   | Default value | Description |
+| ------ | --------- | ---------- | ------------- | ----------- |
+| string | `string`  |            |               |
+| joiner | `string`  | _optional_ | `', '`        |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssChangeJoiner('0 4px auto'); // => '0, 4px, auto'
+jssChangeJoiner('0 4px auto', '~*~'); // => '0~*~4px~*~auto' ;)
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
 ### jssClamp()
 
 [comment]: <> (AUTODOC-TOOL-START::min-max-clamp#jssClamp)
@@ -248,29 +279,50 @@ jssClamp(jssRem(24), '10%', jssRem(64)); // 'max(1.5rem, min(10%, 4rem))'
 
 ---
 
+### jssConvertPixels()
+
+[comment]: <> (AUTODOC-TOOL-START::em-rem#jssConvertPixels)
+
+Low level converter
+
+_Parameters:_
+
+| Name   | Data type      | Argument | Default value | Description |
+| ------ | -------------- | -------- | ------------- | ----------- |
+| size   | `number`       |          |               |
+| pixels | `PixelValue[]` |          |               |
+| unit   | `Units`        |          |               |
+| joiner | `Joiner`       |          |               |
+
+_Returns:_ `string`
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
 ### jssEm()
 
 [comment]: <> (AUTODOC-TOOL-START::em-rem#jssEm)
 
+High level converter from px to em
+
 _Parameters:_
 
-| Name   | Data type      | Argument   | Default value | Description |
-| ------ | -------------- | ---------- | ------------- | ----------- |
-| emSize | `number`       |            |               |
-| pixels | `PixelValue[]` |            |               |
-| joiner | `Joiner`       | _optional_ | `' '`         |
+| Name   | Data type         | Argument | Default value | Description |
+| ------ | ----------------- | -------- | ------------- | ----------- |
+| emSize | `number`          |          |               |
+| pixels | `...PixelValue[]` |          |               |
 
 _Returns:_ `string`
 
 _Examples:_
 
 ```ts
-jssEm(16, [16]); // => '1em'
-jssEm(16, [16, 'auto']); // => '1em auto'
-jssEm(16, [-8, 0]); // => '-0.5em 0'
-jssEm(16, [24, 32, 48]); // => '1.5em 2em 3em'
-jssEm(20, [30, 10, 45]); // => '1.5em 0.5em 2.25em'
-jssEm(20, [30, 10, 45], ', '); // => '1.5em, 0.5em, 2.25em'
+jssEm(16, 16); // => '1em'
+jssEm(16, 16, 'auto'); // => '1em auto'
+jssEm(16, -8, 0); // => '-0.5em 0'
+jssEm(16, 24, 32, 48); // => '1.5em 2em 3em'
+jssEm(20, 30, 10, 45); // => '1.5em 0.5em 2.25em'
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)
@@ -389,25 +441,107 @@ jssPercentage(9, 16, true, 1); // => 56.2
 
 [comment]: <> (AUTODOC-TOOL-START::em-rem#jssRem)
 
+High level converter from px to rem
+
 _Parameters:_
 
-| Name    | Data type      | Argument   | Default value | Description |
-| ------- | -------------- | ---------- | ------------- | ----------- |
-| remSize | `number`       |            |               |
-| pixels  | `PixelValue[]` |            |               |
-| joiner  | `Joiner`       | _optional_ | `' '`         |
+| Name    | Data type         | Argument | Default value | Description |
+| ------- | ----------------- | -------- | ------------- | ----------- |
+| remSize | `number`          |          |               |
+| pixels  | `...PixelValue[]` |          |               |
 
 _Returns:_ `string`
 
 _Examples:_
 
 ```ts
-jssRem(16, [16]); // => '1rem'
-jssRem(16, [16, 'auto']); // => '1rem auto'
-jssRem(16, [-8, 0]); // => '-0.5rem 0'
-jssRem(16, [24, 32, 48]); // => '1.5rem 2rem 3rem'
-jssRem(20, [30, 10, 45]); // => '1.5rem 0.5rem 2.25rem'
-jssRem(20, [30, 10, 45], ', '); // => '1.5rem, 0.5rem, 2.25rem'
+jssRem(16, 16); // => '1rem'
+jssRem(16, 16, 'auto'); // => '1rem auto'
+jssRem(16, -8, 0); // => '-0.5rem 0'
+jssRem(16, 24, 32, 48); // => '1.5rem 2rem 3rem'
+jssRem(20, 30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### jssRemDefined()
+
+[comment]: <> (AUTODOC-TOOL-START::em-rem#jssRemDefined)
+
+High level converter from px to rem with pre-defined rem size
+By default rem size used as 16px;
+
+_Parameters:_
+
+| Name   | Data type         | Argument | Default value | Description |
+| ------ | ----------------- | -------- | ------------- | ----------- |
+| pixels | `...PixelValue[]` |          |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssRemDefined(16); // => '1rem'
+jssRemDefined(16, 'auto'); // => '1rem auto'
+jssRemDefined(-8, 0); // => '-0.5rem 0'
+jssRemDefined(24, 32, 48); // => '1.5rem 2rem 3rem'
+jssRemDefined(30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### jssSetPreDefinedRemSize()
+
+[comment]: <> (AUTODOC-TOOL-START::em-rem#jssSetPreDefinedRemSize)
+
+Change pre-defined rem size.
+
+_Parameters:_
+
+| Name | Data type | Argument | Default value | Description |
+| ---- | --------- | -------- | ------------- | ----------- |
+| size | `number`  |          |               |
+
+_Returns:_ `void`
+
+_Examples:_
+
+```ts
+jssRemDefined(20); // => '1.25rem'
+jssSetPreDefinedRemSize(20);
+jssRemDefined(20); // => '1rem'
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### jssSplitAndChangeJoiner()
+
+[comment]: <> (AUTODOC-TOOL-START::dividers#jssSplitAndChangeJoiner)
+
+Low level method
+
+_Parameters:_
+
+| Name    | Data type | Argument | Default value | Description |
+| ------- | --------- | -------- | ------------- | ----------- |
+| string  | `string`  |          |               |
+| splitBy | `string`  |          |               |
+| joiner  | `string`  |          |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssChangeJoiner('0 4px auto', ' ', ', '); // => '0, 4px, auto'
+jssChangeJoiner('0 4px auto', ' ', '~*~'); // => '0~*~4px~*~auto' ;)
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)
