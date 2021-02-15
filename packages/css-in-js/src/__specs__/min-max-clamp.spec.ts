@@ -17,7 +17,7 @@ describe('jssClamp', () => {
 				expected: 'clamp(10px, 5vw, 50px)'
 			},
 			{
-				parameters: [jssRem(16, [24]), '10%', jssRem(16, [64])],
+				parameters: [jssRem(24), '10%', jssRem(64)],
 				expected: 'clamp(1.5rem, 10%, 4rem)'
 			}
 		]);
@@ -32,7 +32,7 @@ describe('jssClampHack', () => {
 				expected: 'max(10px, min(5vw, 50px))'
 			},
 			{
-				parameters: [jssRem(16, [24]), '10%', jssRem(16, [64])],
+				parameters: [jssRem(24), '10%', jssRem(64)],
 				expected: 'max(1.5rem, min(10%, 4rem))'
 			}
 		]);
@@ -47,7 +47,7 @@ describe('jssMax', () => {
 				expected: 'max(5vw, 50px)'
 			},
 			{
-				parameters: ['5vw', jssRem(16, [64])],
+				parameters: ['5vw', jssRem(64)],
 				expected: 'max(5vw, 4rem)'
 			}
 		]);
@@ -62,7 +62,7 @@ describe('jssMin', () => {
 				expected: 'min(5vw, 50px)'
 			},
 			{
-				parameters: ['5vw', jssRem(16, [64])],
+				parameters: ['5vw', jssRem(64)],
 				expected: 'min(5vw, 4rem)'
 			}
 		]);

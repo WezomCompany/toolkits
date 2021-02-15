@@ -43,20 +43,6 @@ export function jssEm(emSize: number, ...pixels: PixelValue[]): string {
 	return jssConvertPixels(emSize, pixels, 'em', ' ');
 }
 
-/**
- * High level converter from px to rem
- * @see jssConvertPixels()
- * @example
- *  jssRem(16, 16); // => '1rem'
- *  jssRem(16, 16, 'auto'); // => '1rem auto'
- *  jssRem(16, -8, 0); // => '-0.5rem 0'
- *  jssRem(16, 24, 32, 48); // => '1.5rem 2rem 3rem'
- *  jssRem(20, 30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
- */
-export function jssRem(remSize: number, ...pixels: PixelValue[]): string {
-	return jssConvertPixels(remSize, pixels, 'rem', ' ');
-}
-
 let _remSize = 16;
 
 /**
@@ -65,14 +51,28 @@ let _remSize = 16;
  * @see jssConvertPixels()
  * @see jssSetPreDefinedRemSize()
  * @example
- *  jssRemDefined(16); // => '1rem'
- *  jssRemDefined(16, 'auto'); // => '1rem auto'
- *  jssRemDefined(-8, 0); // => '-0.5rem 0'
- *  jssRemDefined(24, 32, 48); // => '1.5rem 2rem 3rem'
- *  jssRemDefined(30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
+ *  jssRem(16); // => '1rem'
+ *  jssRem(16, 'auto'); // => '1rem auto'
+ *  jssRem(-8, 0); // => '-0.5rem 0'
+ *  jssRem(24, 32, 48); // => '1.5rem 2rem 3rem'
+ *  jssRem(30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
  */
-export function jssRemDefined(...pixels: PixelValue[]): string {
+export function jssRem(...pixels: PixelValue[]): string {
 	return jssConvertPixels(_remSize, pixels, 'rem', ' ');
+}
+
+/**
+ * High level converter from px to rem, with custom rem size
+ * @see jssConvertPixels()
+ * @example
+ *  jssRemWithSize(16, 16); // => '1rem'
+ *  jssRemWithSize(16, 16, 'auto'); // => '1rem auto'
+ *  jssRemWithSize(16, -8, 0); // => '-0.5rem 0'
+ *  jssRemWithSize(16, 24, 32, 48); // => '1.5rem 2rem 3rem'
+ *  jssRemWithSize(20, 30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
+ */
+export function jssRemWithSize(remSize: number, ...pixels: PixelValue[]): string {
+	return jssConvertPixels(remSize, pixels, 'rem', ' ');
 }
 
 /**

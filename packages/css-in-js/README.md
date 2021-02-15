@@ -29,7 +29,7 @@
         - [`jssConvertPixels()`](#jssconvertpixels)
         - [`jssEm()`](#jssem)
         - [`jssRem()`](#jssrem)
-        - [`jssRemDefined()`](#jssremdefined)
+        - [`jssRemWithSize()`](#jssremwithsize)
         - [`jssSetPreDefinedRemSize()`](#jsssetpredefinedremsize)
         - [`jssPercentage()`](#jsspercentage)
         - [`jssUnitExtract()`](#jssunitextract)
@@ -427,35 +427,6 @@ jssEm(20, 30, 10, 45); // => '1.5em 0.5em 2.25em'
 
 [comment]: <> (AUTODOC-TOOL-START::em-rem#jssRem)
 
-High level converter from px to rem
-
-_Parameters:_
-
-| Name    | Data type         | Argument | Default value | Description |
-| ------- | ----------------- | -------- | ------------- | ----------- |
-| remSize | `number`          |          |               |
-| pixels  | `...PixelValue[]` |          |               |
-
-_Returns:_ `string`
-
-_Examples:_
-
-```ts
-jssRem(16, 16); // => '1rem'
-jssRem(16, 16, 'auto'); // => '1rem auto'
-jssRem(16, -8, 0); // => '-0.5rem 0'
-jssRem(16, 24, 32, 48); // => '1.5rem 2rem 3rem'
-jssRem(20, 30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
-```
-
-[comment]: <> (AUTODOC-TOOL-END)
-
----
-
-#### `jssRemDefined()`
-
-[comment]: <> (AUTODOC-TOOL-START::em-rem#jssRemDefined)
-
 High level converter from px to rem with pre-defined rem size
 By default rem size used as 16px;
 
@@ -470,11 +441,40 @@ _Returns:_ `string`
 _Examples:_
 
 ```ts
-jssRemDefined(16); // => '1rem'
-jssRemDefined(16, 'auto'); // => '1rem auto'
-jssRemDefined(-8, 0); // => '-0.5rem 0'
-jssRemDefined(24, 32, 48); // => '1.5rem 2rem 3rem'
-jssRemDefined(30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
+jssRem(16); // => '1rem'
+jssRem(16, 'auto'); // => '1rem auto'
+jssRem(-8, 0); // => '-0.5rem 0'
+jssRem(24, 32, 48); // => '1.5rem 2rem 3rem'
+jssRem(30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+#### `jssRemWithSize()`
+
+[comment]: <> (AUTODOC-TOOL-START::em-rem#jssRemWithSize)
+
+High level converter from px to rem, with custom rem size
+
+_Parameters:_
+
+| Name    | Data type         | Argument | Default value | Description |
+| ------- | ----------------- | -------- | ------------- | ----------- |
+| remSize | `number`          |          |               |
+| pixels  | `...PixelValue[]` |          |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssRemWithSize(16, 16); // => '1rem'
+jssRemWithSize(16, 16, 'auto'); // => '1rem auto'
+jssRemWithSize(16, -8, 0); // => '-0.5rem 0'
+jssRemWithSize(16, 24, 32, 48); // => '1.5rem 2rem 3rem'
+jssRemWithSize(20, 30, 10, 45); // => '1.5rem 0.5rem 2.25rem'
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)

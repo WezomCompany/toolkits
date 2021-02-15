@@ -13,11 +13,11 @@ describe('jssUnitExtract', () => {
 	describe('Function signature should match specification', () => {
 		jestFunctionSignatureTest(jssUnitExtract, [
 			{
-				parameters: [jssRem(16, [32])],
+				parameters: [jssRem(32)],
 				expected: 'rem'
 			},
 			{
-				parameters: [jssEm(20, [32])],
+				parameters: [jssEm(20, 32)],
 				expected: 'em'
 			},
 			{
@@ -64,11 +64,11 @@ describe('jssUnitLess', () => {
 	describe('Function signature should match specification', () => {
 		jestFunctionSignatureTest(jssUnitLess, [
 			{
-				parameters: [jssRem(16, [32])],
+				parameters: [jssRem(32)],
 				expected: 2
 			},
 			{
-				parameters: [jssEm(20, [32])],
+				parameters: [jssEm(20, 32)],
 				expected: 1.6
 			},
 			{

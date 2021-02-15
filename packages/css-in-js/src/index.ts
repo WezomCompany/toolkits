@@ -6,7 +6,7 @@ export {
 	jssConvertPixels,
 	jssEm,
 	jssRem,
-	jssRemDefined,
+	jssRemWithSize,
 	jssSetPreDefinedRemSize
 } from './em-rem';
 export { default as jssFontFaceSrc } from './font-face-src';
