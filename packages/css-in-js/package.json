@@ -1,7 +1,7 @@
 {
   "name": "@wezom/toolkit-css-in-js",
   "version": "5.0.0",
-  "description": "Useful tools for working with CSS-in-JS.",
+  "description": "Useful tools for working with CSS-in-JS",
   "main": "dist/index.js",
   "files": [
     "dist"
