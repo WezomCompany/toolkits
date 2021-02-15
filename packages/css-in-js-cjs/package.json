@@ -1,7 +1,7 @@
 {
   "name": "@wezom/toolkit-css-in-js-cjs",
   "version": "5.0.0",
-  "description": "Useful tools for working with CSS-in-JS. CommonJS distribution version",
+  "description": "Useful tools for working with CSS-in-JS. CommonJS distribution version.",
   "main": "dist/index.js",
   "files": [
     "dist"
