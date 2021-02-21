@@ -15,6 +15,7 @@
 1. [Tools](#usage)
     1. [`arrayAddUnique()`](#arrayaddunique)
     1. [`arrayClone()`](#arrayclone)
+    1. [`arrayFilterNullable()`](#arrayfilternullable)
     1. [`arrayRemoveItems()`](#arrayremoveitems)
     1. [`arraySimpleRandomFn()`](#arraysimplerandomfn)
 1. [Contributing](#contributing)
@@ -73,6 +74,12 @@ _Returns:_ `T[]`
 
 [comment]: <> (AUTODOC-TOOL-END)
 
+---
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
 ### arrayClone()
 
 [comment]: <> (AUTODOC-TOOL-START::clone#default)
@@ -88,6 +95,44 @@ _Parameters:_
 _Returns:_ `T[]`
 
 [comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+### arrayFilterNullable()
+
+[comment]: <> (AUTODOC-TOOL-START::filter-nullable#default)
+
+Filter `null` and `undefined` array items
+
+_Parameters:_
+
+| Name | Data type   | Argument   | Default value | Description |
+| ---- | ----------- | ---------- | ------------- | ----------- |
+| data | `T / [] / ` | _optional_ |               |
+
+_Returns:_ `T[]`
+
+_Examples:_
+
+```ts
+arrayFilterNullable([1, null, 2, undefined, 3, false, 0]); // => [1, 2, 3, false, 0]
+arrayFilterNullable(null); // => []
+arrayFilterNullable(); // => []
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+---
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
 
 ### arrayRemoveItems()
 
@@ -106,6 +151,10 @@ _Parameters:_
 _Returns:_ `T[]`
 
 [comment]: <> (AUTODOC-TOOL-END)
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
 
 ### arraySimpleRandomFn()
 
