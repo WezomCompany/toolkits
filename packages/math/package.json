@@ -16,6 +16,7 @@
     "build:esnext": "tsc",
     "build:cjs": "rollup -c rollup.config.js",
     "build:format": "prettier dist/**/*.{d.ts,js} --check --write && prettier ../math-cjs/dist/**/*.{d.ts,js} --check --write",
+    "postbuild": "node ../../utils/cjs-build-hash.js -i ../math-cjs/dist/**/** -o ../math-cjs/build-hash.txt",
     "----------------------------------------------- AUTODOC": "SECTION",
     "autodoc:typedoc": "typedoc src --json .cache/typedoc.json && node ../../utils/autodoc-typedoc-normalize.js",
     "autodoc:inject": "node ../../utils/autodoc-ts-tool.js && prettier ./README.md --write",
