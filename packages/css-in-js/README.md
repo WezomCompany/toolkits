@@ -4,7 +4,7 @@
 
 | Statements                                                                  | Branches                                                                  | Functions                                                                    | Lines                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-94.59%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-95.12%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -34,6 +34,7 @@
         - [`jssPercentage()`](#jsspercentage)
         - [`jssUnitExtract()`](#jssunitextract)
         - [`jssUnitLess()`](#jssunitless)
+        - [`jssUnitRevertSign()`](#jssunitrevertsign)
     - [Fonts](#fonts)
         - [`jssFontFaceSrc()`](#jssfontfacesrc)
 1. [Contributing](#contributing)
@@ -586,6 +587,36 @@ jssUnitLess('3rem'); // 4
 jssUnitLess(jssEm(16, [64])); // 4
 jssUnitLess('-20px'); // -20
 jssUnitLess('56.25%'); // 56.25
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+#### `jssUnitRevertSign()`
+
+[comment]: <> (AUTODOC-TOOL-START::units#jssUnitRevertSign)
+
+Invert value sign
+
+_Parameters:_
+
+| Name  | Data type         | Argument | Default value | Description |
+| ----- | ----------------- | -------- | ------------- | ----------- |
+| value | `string / number` |          |               |
+
+_Returns:_ `string / number`
+
+_Examples:_
+
+```ts
+jssUnitRevertSign(-20); // 20
+jssUnitRevertSign('3rem'); // '-3rem'
+jssUnitRevertSign('56.25%'); // '-56.25%'
+jssUnitRevertSign('-4px 4px'); // '4px -4px'
+jssUnitRevertSign(jssEm(16, 64, -64)); // '-4em 4em'
+jssUnitRevertSign('-4px, 4px'); // '4px, -4px'
+jssUnitRevertSign('-4px, 4px 4px, -5px, -6 -7 -8, 99.9%'); // '4px, -4px -4px, 5px, 6 7 8, -99.9%'
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)
