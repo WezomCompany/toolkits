@@ -2,7 +2,14 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { jssUnitExtract, jssUnitLess, jssRem, jssEm, jssPercentage } from '../index';
+import {
+	jssUnitExtract,
+	jssUnitLess,
+	jssRem,
+	jssEm,
+	jssPercentage,
+	jssUnitRevertSign
+} from '../index';
 import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
 
 // -----------------------------------------------------------------------------
@@ -102,6 +109,49 @@ describe('jssUnitLess', () => {
 			{
 				parameters: ['XXXXX'],
 				expected: NaN
+			}
+		]);
+	});
+});
+
+describe('jssUnitRevertSign', () => {
+	describe('Function signature should match specification', () => {
+		jestFunctionSignatureTest(jssUnitRevertSign, [
+			{
+				parameters: [-20],
+				expected: 20
+			},
+			{
+				parameters: [20],
+				expected: -20
+			},
+			{
+				parameters: ['3rem'],
+				expected: '-3rem'
+			},
+			{
+				parameters: ['-3rem'],
+				expected: '3rem'
+			},
+			{
+				parameters: ['56.3%'],
+				expected: '-56.3%'
+			},
+			{
+				parameters: ['-4px 4px'],
+				expected: '4px -4px'
+			},
+			{
+				parameters: [jssEm(16, 64, -64)],
+				expected: '-4em 4em'
+			},
+			{
+				parameters: ['-4px, 4px'],
+				expected: '4px, -4px'
+			},
+			{
+				parameters: ['-4px, 4px 4px, -5px, -6 -7 -8, 99.9%'],
+				expected: '4px, -4px -4px, 5px, 6 7 8, -99.9%'
 			}
 		]);
 	});

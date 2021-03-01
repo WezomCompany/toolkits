@@ -33,3 +33,34 @@ export function jssUnitLess(value: string | number): number {
 	}
 	return value;
 }
+
+/**
+ * Invert value sign
+ * @example
+ *  jssUnitRevertSign(-20) // 20
+ *  jssUnitRevertSign('3rem') // '-3rem'
+ *  jssUnitRevertSign('56.25%') // '-56.25%'
+ *  jssUnitRevertSign('-4px 4px') // '4px -4px'
+ *  jssUnitRevertSign(jssEm(16, 64, -64)) // '-4em 4em'
+ *  jssUnitRevertSign('-4px, 4px') // '4px, -4px'
+ *  jssUnitRevertSign('-4px, 4px 4px, -5px, -6 -7 -8, 99.9%') // '4px, -4px -4px, 5px, 6 7 8, -99.9%'
+ */
+export function jssUnitRevertSign(value: string | number): string | number {
+	if (typeof value === 'number') {
+		return value * -1;
+	} else {
+		return value
+			.split(', ')
+			.map((val) =>
+				val
+					.split(' ')
+					.map((v) => {
+						const unit = jssUnitExtract(v);
+						const number = jssUnitLess(v);
+						return number * -1 + unit;
+					})
+					.join(' ')
+			)
+			.join(', ');
+	}
+}
