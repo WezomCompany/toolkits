@@ -28,20 +28,52 @@ import { jssUnitLess } from './units';
  *      width: '120%',
  *      height: '120%'
  *  }
+ *
+ *  jssAbsoluteSquare('120%', 'topRight');
+ *  // returns
+ *  {
+ *      top: '-10%',
+ *      right: '-10%',
+ *      width: '120%',
+ *      height: '120%'
+ *  }
+ *
+ *  jssAbsoluteSquare('120%', 'bottomRight');
+ *  // returns
+ *  {
+ *      bottom: '-10%',
+ *      right: '-10%',
+ *      width: '120%',
+ *      height: '120%'
+ *  }
+ *
+ *  jssAbsoluteSquare('120%', 'bottomLeft');
+ *  // returns
+ *  {
+ *      bottom: '-10%',
+ *      left: '-10%',
+ *      width: '120%',
+ *      height: '120%'
+ *  }
  */
 export default function (
-	percent: string | number
+	percent: string | number,
+	corner: 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft' = 'topLeft'
 ): {
-	top: string;
-	left: string;
+	top?: string;
+	bottom?: string;
+	left?: string;
+	right?: string;
 	width: string;
 	height: string;
 } {
 	const value = jssUnitLess(percent);
 	const diff = (100 - value) / 2;
+	const x = corner === 'topLeft' || corner === 'topRight' ? 'top' : 'bottom';
+	const y = corner === 'topLeft' || corner === 'bottomLeft' ? 'left' : 'right';
 	return {
-		top: diff + '%',
-		left: diff + '%',
+		[x]: diff + '%',
+		[y]: diff + '%',
 		width: value + '%',
 		height: value + '%'
 	};

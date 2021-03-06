@@ -37,6 +37,42 @@ describe('Function signature should match specification', () => {
 				width: '120%',
 				height: '120%'
 			}
+		},
+		{
+			parameters: ['120%', 'topLeft'],
+			expected: {
+				top: '-10%',
+				left: '-10%',
+				width: '120%',
+				height: '120%'
+			}
+		},
+		{
+			parameters: ['120%', 'topRight'],
+			expected: {
+				top: '-10%',
+				right: '-10%',
+				width: '120%',
+				height: '120%'
+			}
+		},
+		{
+			parameters: ['120%', 'bottomRight'],
+			expected: {
+				bottom: '-10%',
+				right: '-10%',
+				width: '120%',
+				height: '120%'
+			}
+		},
+		{
+			parameters: ['120%', 'bottomLeft'],
+			expected: {
+				bottom: '-10%',
+				left: '-10%',
+				width: '120%',
+				height: '120%'
+			}
 		}
 	]);
 });
