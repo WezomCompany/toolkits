@@ -29,7 +29,9 @@ const _parseType = (docType, { isRest } = {}) => {
 		case 'intersection':
 			return _code(_parseTrimJoin(docType.types, ' & '), isRest);
 		case 'union':
-			return _code(_parseTrimJoin(docType.types, ' / '), isRest);
+			return _code(_parseTrimJoin(docType.types, ' │ '), isRest);
+		case 'literal':
+			return _code(docType.value, isRest);
 		default:
 			return '';
 	}
