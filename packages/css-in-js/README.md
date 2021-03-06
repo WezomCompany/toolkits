@@ -2,9 +2,9 @@
 
 > _Useful tools for working with CSS-in-JS_
 
-| Statements                                                                  | Branches                                                                  | Functions                                                                    | Lines                                                                  |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-95.12%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -85,10 +85,11 @@ Generate CSS properties for absolute centering
 
 _Parameters:_
 
-| Name   | Data type | Argument   | Default value | Description |
-| ------ | --------- | ---------- | ------------- | ----------- |
-| width  | `string`  |            |               |
-| height | `string`  | _optional_ | `...`         |
+| Name   | Data type                                       | Argument   | Default value | Description |
+| ------ | ----------------------------------------------- | ---------- | ------------- | ----------- |
+| width  | `string`                                        |            |               |
+| height | `string`                                        | _optional_ | `...`         |
+| corner | `topLeft │ topRight │ bottomRight │ bottomLeft` | _optional_ | `'topLeft'`   |
 
 _Examples:_
 
@@ -111,6 +112,36 @@ _Examples:_
      width: '4rem',
      height: '60px',
      margin: '-30px 0 0 -2rem'
+ }
+
+ jssAbsoluteCenter('100px', '100px', 'topRight);
+ // returns
+ {
+     top: '50%',
+     right: '50%',
+     width: '100px',
+     height: '100px',
+     margin: '-50px -50px 0 0'
+ }
+
+ jssAbsoluteCenter('100px', '100px', 'bottomRight);
+ // returns
+ {
+     bottom: '50%',
+     right: '50%',
+     width: '100px',
+     height: '100px',
+     margin: '0 -50px -50px 0'
+ }
+
+ jssAbsoluteCenter('100px', '100px', 'bottomLeft);
+ // returns
+ {
+     bottom: '50%',
+     right: '50%',
+     width: '100px',
+     height: '100px',
+     margin: '0 0 -50px -50px'
  }
 
 ```
@@ -167,9 +198,10 @@ _Examples:_
 
 _Parameters:_
 
-| Name    | Data type         | Argument | Default value | Description |
-| ------- | ----------------- | -------- | ------------- | ----------- |
-| percent | `string / number` |          |               |
+| Name    | Data type                                       | Argument   | Default value | Description |
+| ------- | ----------------------------------------------- | ---------- | ------------- | ----------- |
+| percent | `string │ number`                               |            |               |
+| corner  | `topLeft │ topRight │ bottomRight │ bottomLeft` | _optional_ | `'topLeft'`   |
 
 _Examples:_
 
@@ -196,6 +228,33 @@ _Examples:_
  // returns
  {
      top: '-10%',
+     left: '-10%',
+     width: '120%',
+     height: '120%'
+ }
+
+ jssAbsoluteSquare('120%', 'topRight');
+ // returns
+ {
+     top: '-10%',
+     right: '-10%',
+     width: '120%',
+     height: '120%'
+ }
+
+ jssAbsoluteSquare('120%', 'bottomRight');
+ // returns
+ {
+     bottom: '-10%',
+     right: '-10%',
+     width: '120%',
+     height: '120%'
+ }
+
+ jssAbsoluteSquare('120%', 'bottomLeft');
+ // returns
+ {
+     bottom: '-10%',
      left: '-10%',
      width: '120%',
      height: '120%'
@@ -523,7 +582,7 @@ _Parameters:_
 | returnAsNumber | `boolean` | _optional_ | `false`       |
 | fractionDigits | `number`  | _optional_ | `5`           |
 
-_Returns:_ `string / number`
+_Returns:_ `string │ number`
 
 _Examples:_
 
@@ -548,7 +607,7 @@ _Parameters:_
 
 | Name  | Data type         | Argument | Default value | Description |
 | ----- | ----------------- | -------- | ------------- | ----------- |
-| value | `string / number` |          |               |
+| value | `string │ number` |          |               |
 
 _Returns:_ `string`
 
@@ -576,7 +635,7 @@ _Parameters:_
 
 | Name  | Data type         | Argument | Default value | Description |
 | ----- | ----------------- | -------- | ------------- | ----------- |
-| value | `string / number` |          |               |
+| value | `string │ number` |          |               |
 
 _Returns:_ `number`
 
@@ -603,9 +662,9 @@ _Parameters:_
 
 | Name  | Data type         | Argument | Default value | Description |
 | ----- | ----------------- | -------- | ------------- | ----------- |
-| value | `string / number` |          |               |
+| value | `string │ number` |          |               |
 
-_Returns:_ `string / number`
+_Returns:_ `string │ number`
 
 _Examples:_
 

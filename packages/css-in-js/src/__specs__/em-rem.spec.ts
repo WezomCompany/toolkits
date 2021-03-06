@@ -2,12 +2,50 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { jssEm, jssRem, jssRemWithSize, jssSetPreDefinedRemSize } from '../index';
 import { jestFunctionSignatureTest } from '@wezom/toolkit-jest';
+import {
+	jssConvertPixels,
+	jssEm,
+	jssRem,
+	jssRemWithSize,
+	jssSetPreDefinedRemSize
+} from '../index';
 
 // -----------------------------------------------------------------------------
 // Tests
 // -----------------------------------------------------------------------------
+
+describe('jssConvertPixels', () => {
+	describe('Function signature should match specification', () => {
+		jestFunctionSignatureTest(jssConvertPixels, [
+			{
+				parameters: [16, [16], 'em', ' '],
+				expected: '1em'
+			},
+			{
+				parameters: [16, [16, 'auto'], 'em', ' '],
+				expected: '1em auto'
+			},
+			{
+				parameters: [16, [-8, 0], 'rem', ' '],
+				expected: '-0.5rem 0'
+			},
+			{
+				parameters: [16, [24, 32, 48], 'rem', ', '],
+				expected: '1.5rem, 2rem, 3rem'
+			},
+			{
+				parameters: [
+					16,
+					['inherit', 'inherit', 'revert', 'unset', 20],
+					'rem',
+					' '
+				],
+				expected: 'inherit inherit revert unset 1.25rem'
+			}
+		]);
+	});
+});
 
 describe('jssEm', () => {
 	describe('Function signature should match specification', () => {

@@ -110,9 +110,9 @@ Filter `null` and `undefined` array items
 
 _Parameters:_
 
-| Name | Data type   | Argument   | Default value | Description |
-| ---- | ----------- | ---------- | ------------- | ----------- |
-| data | `T / [] / ` | _optional_ |               |
+| Name | Data type           | Argument   | Default value | Description |
+| ---- | ------------------- | ---------- | ------------- | ----------- |
+| data | `T │ null[] │ null` | _optional_ |               |
 
 _Returns:_ `T[]`
 
