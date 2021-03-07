@@ -16,6 +16,7 @@
     1. [`arrayAddUnique()`](#arrayaddunique)
     1. [`arrayClone()`](#arrayclone)
     1. [`arrayFilterNullable()`](#arrayfilternullable)
+    1. [`arrayFilterUnique()`](#arrayfilterunique)
     1. [`arrayRemoveItems()`](#arrayremoveitems)
     1. [`arraySimpleRandomFn()`](#arraysimplerandomfn)
 1. [Contributing](#contributing)
