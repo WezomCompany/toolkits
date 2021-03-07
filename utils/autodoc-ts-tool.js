@@ -10,8 +10,9 @@ const toolsTypeDoc = JSON.parse(fs.readFileSync(toolsTypeDocPath).toString());
 const _code = (value, isRest) =>
 	value === undefined ? '' : `\`${isRest ? '...' : ''}${value}\``;
 const _trimCode = (value) => value.replace(/^`|`$/g, '');
+const _trimAllCode = (value) => value.replace(/`/g, '');
 const _parseTrimJoin = (arr, joiner) => arr.map(_parseType).map(_trimCode).join(joiner);
-const _parseType = (docType, { isRest } = {}) => {
+const _parseType = (docType, { isRest, inTable } = {}) => {
 	switch (docType.type) {
 		case 'intrinsic':
 			return _code(docType.name, isRest);
@@ -24,8 +25,12 @@ const _parseType = (docType, { isRest } = {}) => {
 			}
 			return _code(docType.name, isRest);
 		case 'array':
-			const _type = _parseType(docType.elementType, { isRest });
+			const _type = _parseType(docType.elementType, { isRest, inTable });
 			return _type ? _code(_trimCode(_type) + '[]') : _type;
+		case 'reflection':
+			return _code(
+				_trimAllCode(_parseReflection(docType.declaration, inTable === true))
+			);
 		case 'intersection':
 			return _code(_parseTrimJoin(docType.types, ' & '), isRest);
 		case 'union':
@@ -35,6 +40,39 @@ const _parseType = (docType, { isRest } = {}) => {
 		default:
 			return '';
 	}
+};
+
+const _parseReflection = (declaration, oneLine) => {
+	if (!declaration) {
+		return '';
+	}
+	if (
+		declaration.kindString === 'Type literal' &&
+		Array.isArray(declaration.children)
+	) {
+		const d = declaration.children
+			.sort((a = {}, b = {}) => {
+				const { line: lineA = 0, character: charA = 0 } = (a.sources || [])[0];
+				const { line: lineB = 0, character: charB = 0 } = (b.sources || [])[0];
+				return lineA === lineB ? charA - charB : lineA - lineB;
+			})
+			.map((child) => {
+				const name =
+					child.flags && child.flags.isOptional ? child.name + '?' : child.name;
+				const value = _parseType(child.type);
+				return `${name}: ${value}`;
+			}, {});
+		if (d.length > 0) {
+			if (d.length === 1) {
+				return `{ ${d[0]} }`;
+			} else {
+				const joiner = oneLine ? ' ' : '\n  ';
+				const end = oneLine ? ' ' : '\n';
+				return '{' + joiner + d.join(`;${joiner}`) + end + '}';
+			}
+		}
+	}
+	return '';
 };
 
 const regExp = /(\[comment]: <> \(AUTODOC-TOOL-START::(.+)\))((?!\[comment]: <> \(AUTODOC-TOOL-END\)).|\n)*(\[comment]: <> \(AUTODOC-TOOL-END\))/gm;
@@ -63,7 +101,8 @@ const newToolsFileContent = toolsFileContent.replace(regExp, (str, g1, g2, g3, g
 						.map((parameter) => {
 							const { flags = {}, comment = {}, type = {} } = parameter;
 							const dataType = _parseType(type, {
-								isRest: flags.isRest
+								isRest: flags.isRest,
+								inTable: true
 							});
 							return (
 								'| ' +
@@ -84,7 +123,13 @@ const newToolsFileContent = toolsFileContent.replace(regExp, (str, g1, g2, g3, g
 
 			let returnType = _parseType(rType);
 			if (returnType) {
-				returnType = '_Returns:_ ' + returnType;
+				if (returnType.includes('\n')) {
+					returnType = `_Returns:_\n\n\`\`\`ts\n${_trimAllCode(
+						returnType
+					)}\n\`\`\``;
+				} else {
+					returnType = '_Returns:_ ' + returnType;
+				}
 			}
 
 			blocks.push(

@@ -68,7 +68,7 @@ _Parameters:_
 | --------- | --------- | ---------- | ------------- | ----------- |
 | array     | `T[]`     |            |               |
 | items     | `T[]`     |            |               |
-| predicate |           | _optional_ | `...`         |
+| predicate | ``        | _optional_ | `...`         |
 
 _Returns:_ `T[]`
 
@@ -146,7 +146,7 @@ _Parameters:_
 | --------- | --------- | ---------- | ------------- | ----------- |
 | array     | `T[]`     |            |               |
 | items     | `T[]`     |            |               |
-| predicate |           | _optional_ | `...`         |
+| predicate | ``        | _optional_ | `...`         |
 
 _Returns:_ `T[]`
 

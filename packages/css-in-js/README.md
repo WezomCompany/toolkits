@@ -91,6 +91,20 @@ _Parameters:_
 | height | `string`                                        | _optional_ | `...`         |
 | corner | `topLeft │ topRight │ bottomRight │ bottomLeft` | _optional_ | `'topLeft'`   |
 
+_Returns:_
+
+```ts
+{
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+  width: string;
+  height: string;
+  margin: string
+}
+```
+
 _Examples:_
 
 ```ts
@@ -161,6 +175,19 @@ _Parameters:_
 | x    | `string`  |            |               |
 | y    | `string`  | _optional_ | `...`         |
 
+_Returns:_
+
+```ts
+{
+	width: auto;
+	height: auto;
+	top: string;
+	right: string;
+	bottom: string;
+	left: string;
+}
+```
+
 _Examples:_
 
 ```ts
@@ -202,6 +229,19 @@ _Parameters:_
 | ------- | ----------------------------------------------- | ---------- | ------------- | ----------- |
 | percent | `string │ number`                               |            |               |
 | corner  | `topLeft │ topRight │ bottomRight │ bottomLeft` | _optional_ | `'topLeft'`   |
+
+_Returns:_
+
+```ts
+{
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+  width: string;
+  height: string
+}
+```
 
 _Examples:_
 
