@@ -68,7 +68,7 @@ _Parameters:_
 | --------- | --------- | ---------- | ------------- | ----------- |
 | array     | `T[]`     |            |               |
 | items     | `T[]`     |            |               |
-| predicate |           | _optional_ | `...`         |
+| predicate | ``        | _optional_ | `...`         |
 
 _Returns:_ `T[]`
 
@@ -128,6 +128,63 @@ arrayFilterNullable(); // => []
 
 ---
 
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+### arrayFilterUnique()
+
+[comment]: <> (AUTODOC-TOOL-START::filter-unique#default)
+
+Returns new array without duplicates
+
+_Parameters:_
+
+| Name      | Data type | Argument   | Default value | Description |
+| --------- | --------- | ---------- | ------------- | ----------- |
+| array     | `T[]`     |            |               |
+| predicate | ``        | _optional_ | `...`         |
+
+_Returns:_ `T[]`
+
+_Examples:_
+
+```ts
+arrayFilterUnique([
+	'🚗',
+	'🛸',
+	'🚐',
+	'🚁',
+	'🚁',
+	'🚐',
+	'🚐',
+	'🛵',
+	'🚁',
+	'🛵',
+	'🛸',
+	'🚗'
+]); // => ['🚗','🛸','🚐','🚁','🛵']
+arrayFilterUnique([
+	{ icon: '🚗' },
+	{ icon: '🚐' },
+	{ icon: '🚐' },
+	{ icon: '🚗' },
+	{ icon: '🚁' },
+	{ icon: '🛵' },
+	{ icon: '🚁' },
+	{ icon: '🚁' },
+	{ icon: '🛸' },
+	{ icon: '🛵' },
+	{ icon: '🛵' },
+	{ icon: '🛵' },
+	{ icon: '🚁' }
+]); // => [{icon: '🚗'},{icon: '🚐'},{icon: '🚁'},{icon: '🛵'},{icon: '🛸'}]
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
 ---
 
 [▲ Go Top](#) | [▲ Table of Content](#table-of-content)
@@ -146,7 +203,7 @@ _Parameters:_
 | --------- | --------- | ---------- | ------------- | ----------- |
 | array     | `T[]`     |            |               |
 | items     | `T[]`     |            |               |
-| predicate |           | _optional_ | `...`         |
+| predicate | ``        | _optional_ | `...`         |
 
 _Returns:_ `T[]`
 
