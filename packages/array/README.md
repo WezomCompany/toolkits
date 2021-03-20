@@ -19,6 +19,7 @@
     1. [`arrayFilterUnique()`](#arrayfilterunique)
     1. [`arrayRemoveItems()`](#arrayremoveitems)
     1. [`arraySimpleRandomFn()`](#arraysimplerandomfn)
+    1. [`arrayToggleItem()`](#arraytoggleitem)
 1. [Contributing](#contributing)
 1. [License](#licence)
 
@@ -221,6 +222,38 @@ _Returns:_ `T[]`
 Function for simple sorting of array elements in random order
 
 _Returns:_ `number`
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+### arrayToggleItem()
+
+[comment]: <> (AUTODOC-TOOL-START::toggle-item#default)
+
+Adds an element to an array or removes if the array already has such an element
+
+_Parameters:_
+
+| Name      | Data type | Argument   | Default value | Description |
+| --------- | --------- | ---------- | ------------- | ----------- |
+| array     | `T[]`     |            |               |
+| item      | `T`       |            |               |
+| predicate | ``        | _optional_ | `...`         |
+
+_Returns:_ `T[]`
+
+_Examples:_
+
+```ts
+arrayToggleItem([1, 2, 3], 9); // => [1, 2, 3, 9]
+arrayToggleItem([1, 2, 3, 9], 2); // => [1, 3, 9]
+arrayToggleItem([{ x: 1 }, { x: 2 }, { x: 3 }], { x: 2 }, (array, item) =>
+	array.findIndex((el) => el.x === item.x)
+); // => [{ x: 1 }, { x: 3 }]
+```
 
 [comment]: <> (AUTODOC-TOOL-END)
 
