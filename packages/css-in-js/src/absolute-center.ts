@@ -53,7 +53,7 @@ import { jssUnitExtract, jssUnitLess } from './units';
  *      margin: '0 0 -50px -50px'
  *  }
  */
-export default function (
+export function jssAbsoluteCenter(
 	width: string,
 	height = width,
 	corner: 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft' = 'topLeft'

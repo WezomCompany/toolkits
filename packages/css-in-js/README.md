@@ -12,7 +12,7 @@
     - [ESNext distribution version](#esnext-distribution-version)
     - [CommonJS distribution version](#commonjs-distribution-version)
     - [Install the chosen npm package](#install-the-chosen-npm-package)
-1. [Tools](#usage)
+2. [Tools](#usage)
     - [Absolute position](#absolute-position)
         - [`jssAbsoluteCenter()`](#jssabsolutecenter)
         - [`jssAbsoluteGap()`](#jssabsolutecenter)
@@ -37,8 +37,10 @@
         - [`jssUnitRevertSign()`](#jssunitrevertsign)
     - [Fonts](#fonts)
         - [`jssFontFaceSrc()`](#jssfontfacesrc)
-1. [Contributing](#contributing)
-1. [License](#licence)
+    - [Custom Properties](#custom-properties)
+        - [`jssVar()`](#jssvar)
+3. [Contributing](#contributing)
+4. [License](#licence)
 
 ---
 
@@ -79,7 +81,7 @@ npm i @wezom/toolkit-css-in-js-cjs
 
 #### `jssAbsoluteCenter()`
 
-[comment]: <> (AUTODOC-TOOL-START::absolute-center#default)
+[comment]: <> (AUTODOC-TOOL-START::absolute-center#jssAbsoluteCenter)
 
 Generate CSS properties for absolute centering
 
@@ -166,7 +168,7 @@ _Examples:_
 
 #### `jssAbsoluteGap()`
 
-[comment]: <> (AUTODOC-TOOL-START::absolute-gap#default)
+[comment]: <> (AUTODOC-TOOL-START::absolute-gap#jssAbsoluteGap)
 
 _Parameters:_
 
@@ -221,7 +223,7 @@ _Examples:_
 
 #### `jssAbsoluteSquare()`
 
-[comment]: <> (AUTODOC-TOOL-START::absolute-square#default)
+[comment]: <> (AUTODOC-TOOL-START::absolute-square#jssAbsoluteSquare)
 
 _Parameters:_
 
@@ -609,7 +611,7 @@ jssRemDefined(20); // => '1rem'
 
 ### `jssPercentage()`
 
-[comment]: <> (AUTODOC-TOOL-START::percentage#default)
+[comment]: <> (AUTODOC-TOOL-START::percentage#jssPercentage)
 
 Calculate percentage value
 
@@ -726,7 +728,7 @@ jssUnitRevertSign('-4px, 4px 4px, -5px, -6 -7 -8, 99.9%'); // '4px, -4px -4px, 5
 
 #### `jssFontFaceSrc()`
 
-[comment]: <> (AUTODOC-TOOL-START::font-face-src#default)
+[comment]: <> (AUTODOC-TOOL-START::font-face-src#jssFontFaceSrc)
 
 Returns string font-face src value
 
@@ -744,6 +746,42 @@ _Examples:_
 ```ts
 const src = jssFontFaceSrc('fonts/my.woff2', 'fonts/my.woff');
 // => "url('/fonts/my.woff2') format('woff2'), url('/fonts/my.woff') format('woff')"
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+### Custom Properties
+
+#### `jssVar()`
+
+[comment]: <> (AUTODOC-TOOL-START::var#jssVar)
+
+Set CSS function `var` body
+
+_Parameters:_
+
+| Name     | Data type         | Argument   | Default value | Description |
+| -------- | ----------------- | ---------- | ------------- | ----------- |
+| varName  | `string`          |            |               |
+| fallback | `string │ number` | _optional_ |               |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssVar('--top'); // 'var(--top)'
+jssVar('top'); // 'var(--top)'
+jssVar('--color', 'red'); // 'var(--color, red)'
+
+const myVarsDict = {
+	propA: 'myPropA',
+	propB: 'myPropB'
+};
+
+jssVar(myVarsDict.propA, 10); // 'var(--myPropA, 10)'
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)

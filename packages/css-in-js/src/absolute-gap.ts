@@ -22,7 +22,7 @@
  *      left: '2em'
  *  }
  */
-export default function (
+export function jssAbsoluteGap(
 	x: string,
 	y = x
 ): {

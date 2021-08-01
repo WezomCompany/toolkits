@@ -56,7 +56,7 @@ import { jssUnitLess } from './units';
  *      height: '120%'
  *  }
  */
-export default function (
+export function jssAbsoluteSquare(
 	percent: string | number,
 	corner: 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft' = 'topLeft'
 ): {

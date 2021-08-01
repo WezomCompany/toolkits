@@ -1,6 +1,6 @@
-export { default as jssAbsoluteCenter } from './absolute-center';
-export { default as jssAbsoluteGap } from './absolute-gap';
-export { default as jssAbsoluteSquare } from './absolute-square';
+export { jssAbsoluteCenter } from './absolute-center';
+export { jssAbsoluteGap } from './absolute-gap';
+export { jssAbsoluteSquare } from './absolute-square';
 export { jssChangeJoiner, jssSplitAndChangeJoiner } from './dividers';
 export {
 	jssConvertPixels,
@@ -9,7 +9,8 @@ export {
 	jssRemWithSize,
 	jssSetPreDefinedRemSize
 } from './em-rem';
-export { default as jssFontFaceSrc } from './font-face-src';
+export { jssFontFaceSrc } from './font-face-src';
 export { jssClamp, jssClampHack, jssMax, jssMin } from './min-max-clamp';
-export { default as jssPercentage } from './percentage';
+export { jssPercentage } from './percentage';
 export { jssUnitExtract, jssUnitLess, jssUnitRevertSign } from './units';
+export { jssVar } from './var';

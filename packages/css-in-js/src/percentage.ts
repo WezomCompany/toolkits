@@ -8,7 +8,7 @@ import { mathRound } from '@wezom/toolkit-math';
  *  jssPercentage(9, 16, true)    // => 56.25
  *  jssPercentage(9, 16, true, 1) // => 56.2
  */
-export default function (
+export function jssPercentage(
 	part: number,
 	full: number,
 	returnAsNumber = false,
