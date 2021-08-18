@@ -35,6 +35,8 @@
         - [`jssUnitExtract()`](#jssunitextract)
         - [`jssUnitLess()`](#jssunitless)
         - [`jssUnitRevertSign()`](#jssunitrevertsign)
+    - [Borders](#borders)
+        - [`jssBorder()`](#jssborder)
     - [Fonts](#fonts)
         - [`jssFontFaceSrc()`](#jssfontfacesrc)
     - [Custom Properties](#custom-properties)
@@ -48,17 +50,24 @@
 
 ### ESNext distribution version
 
-We use TypeScript as main development language and distribute our lib in the maximum compliance with modern JavaScript specifications.
+We use TypeScript as main development language and distribute our lib in the maximum compliance with modern JavaScript
+specifications.
 
-Your project bundler (webpack or something else) should not exclude this installed package from `node_modules` folder for the transpilation process.
+Your project bundler (webpack or something else) should not exclude this installed package from `node_modules` folder
+for the transpilation process.
 
-_The package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/package/babel-loader-exclude-node-modules-except) can help you with this_
+_The
+package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/package/babel-loader-exclude-node-modules-except)
+can help you with this_
 
 ### CommonJS distribution version
 
-If you cannot change your bundler config or if you do not want to include _ESNext_ code version into your project - for this we have compiled CommonJS distribution version.
+If you cannot change your bundler config or if you do not want to include _ESNext_ code version into your project - for
+this we have compiled CommonJS distribution version.
 
-You can install [`@wezom/toolkit-css-in-js-cjs`](https://github.com/WezomCompany/toolkits/blob/main/packages/css-in-js-cjs/README.md#readme) instead of the current package.
+You can
+install [`@wezom/toolkit-css-in-js-cjs`](https://github.com/WezomCompany/toolkits/blob/main/packages/css-in-js-cjs/README.md#readme)
+instead of the current package.
 
 ### Install the chosen npm package
 
@@ -529,8 +538,7 @@ jssEm(20, 30, 10, 45); // => '1.5em 0.5em 2.25em'
 
 [comment]: <> (AUTODOC-TOOL-START::em-rem#jssRem)
 
-High level converter from px to rem with pre-defined rem size
-By default rem size used as 16px;
+High level converter from px to rem with pre-defined rem size By default rem size used as 16px;
 
 _Parameters:_
 
@@ -724,6 +732,42 @@ jssUnitRevertSign('-4px, 4px 4px, -5px, -6 -7 -8, 99.9%'); // '4px, -4px -4px, 5
 
 ---
 
+### Borders
+
+#### `jssBorder()`
+
+[comment]: <> (AUTODOC-TOOL-START::border#jssBorder)
+
+Setting border values a little more declarative
+
+_Parameters:_
+
+| Name       | Data type                                                                            | Argument | Default value | Description |
+| ---------- | ------------------------------------------------------------------------------------ | -------- | ------------- | ----------- |
+| width      | `string │ number`                                                                    |          |               |
+| style      | `none │ hidden │ dotted │ dashed │ solid │ double │ groove │ ridge │ inset │ outset` | \_       |
+| optional\_ | `'solid'`                                                                            |
+| color      | `string`                                                                             | \_       |
+| optional\_ |                                                                                      |
+
+_Returns:_ `string`
+
+_Examples:_
+
+```ts
+jssBorder(2); // => '2px solid'
+jssBorder('0.25rem'); // => '0.25rem solid'
+jssBorder(3, 'double'); // => '3px double'
+// instead of concat `1px solid ${myColorVar}`
+jssBorder(1, 'solid', myColorVar); // => '1px solid #f00'
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+---
+
 ### Fonts
 
 #### `jssFontFaceSrc()`
@@ -794,7 +838,8 @@ jssVar(myVarsDict.propA, 10); // 'var(--myPropA, 10)'
 
 ## Contributing
 
-Please fill free to create [issues](https://github.com/WezomCompany/toolkits/issues) or send [PR](https://github.com/WezomCompany/toolkits/pulls)
+Please fill free to create [issues](https://github.com/WezomCompany/toolkits/issues) or
+send [PR](https://github.com/WezomCompany/toolkits/pulls)
 
 ## Licence
 

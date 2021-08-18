@@ -1,5 +1,4 @@
 const fs = require('fs');
-const fromCWD = require('from-cwd');
 const glob = require('glob');
 
 const regExp = /'@wezom\/toolkit-(array|css-in-js|math|promise)'/g;

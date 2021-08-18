@@ -1,6 +1,7 @@
 export { jssAbsoluteCenter } from './absolute-center';
 export { jssAbsoluteGap } from './absolute-gap';
 export { jssAbsoluteSquare } from './absolute-square';
+export { jssBorder } from './border';
 export { jssChangeJoiner, jssSplitAndChangeJoiner } from './dividers';
 export {
 	jssConvertPixels,
