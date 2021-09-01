@@ -114,8 +114,8 @@ Filter `null` and `undefined` array items
 
 _Parameters:_
 
-| Name | Data type           | Argument   | Default value | Description |
-| ---- | ------------------- | ---------- | ------------- | ----------- |
+| Name | Data type             | Argument   | Default value | Description |
+| ---- | --------------------- | ---------- | ------------- | ----------- |
 | data | `(T │ null)[] │ null` | _optional_ |               |
 
 _Returns:_ `T[]`
@@ -201,10 +201,10 @@ Getting first not nullable item from given array data
 
 _Parameters:_
 
-| Name            | Data type           | Argument   | Default value | Description |
-| --------------- | ------------------- | ---------- | ------------- | ----------- |
+| Name            | Data type             | Argument   | Default value | Description |
+| --------------- | --------------------- | ---------- | ------------- | ----------- |
 | data            | `(T │ null)[] │ null` | _optional_ |               |
-| strictZeroIndex | `boolean`           | _optional_ |               |
+| strictZeroIndex | `boolean`             | _optional_ |               |
 
 _Returns:_ `T │ undefined`
 

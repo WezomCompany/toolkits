@@ -538,7 +538,8 @@ jssEm(20, 30, 10, 45); // => '1.5em 0.5em 2.25em'
 
 [comment]: <> (AUTODOC-TOOL-START::em-rem#jssRem)
 
-High level converter from px to rem with pre-defined rem size By default rem size used as 16px;
+High level converter from px to rem with pre-defined rem size
+By default rem size used as 16px;
 
 _Parameters:_
 
@@ -742,13 +743,11 @@ Setting border values a little more declarative
 
 _Parameters:_
 
-| Name       | Data type                                                                            | Argument | Default value | Description |
-| ---------- | ------------------------------------------------------------------------------------ | -------- | ------------- | ----------- |
-| width      | `string │ number`                                                                    |          |               |
-| style      | `none │ hidden │ dotted │ dashed │ solid │ double │ groove │ ridge │ inset │ outset` | \_       |
-| optional\_ | `'solid'`                                                                            |
-| color      | `string`                                                                             | \_       |
-| optional\_ |                                                                                      |
+| Name  | Data type                                                                            | Argument   | Default value | Description |
+| ----- | ------------------------------------------------------------------------------------ | ---------- | ------------- | ----------- |
+| width | `string │ number`                                                                    |            |               |
+| style | `none │ hidden │ dotted │ dashed │ solid │ double │ groove │ ridge │ inset │ outset` | _optional_ | `'solid'`     |
+| color | `string`                                                                             | _optional_ |               |
 
 _Returns:_ `string`
 

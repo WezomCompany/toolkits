@@ -11,8 +11,12 @@ const _code = (value, isRest) =>
 	value === undefined ? '' : `\`${isRest ? '...' : ''}${value}\``;
 const _trimCode = (value) => value.replace(/^`|`$/g, '');
 const _trimAllCode = (value) => value.replace(/`/g, '');
-const _parseTrimJoin = (arr, joiner) => arr.map(_parseType).map(_trimCode).join(joiner);
-const _parseType = (docType, { isRest, inTable } = {}) => {
+const _parseTrimJoin = (arr, joiner, config = {}) =>
+	arr
+		.map((item) => _parseType(item, config))
+		.map(_trimCode)
+		.join(joiner);
+const _parseType = (docType, { isRest, inTable, isGroup } = {}) => {
 	switch (docType.type) {
 		case 'intrinsic':
 			return _code(docType.name, isRest);
@@ -26,15 +30,22 @@ const _parseType = (docType, { isRest, inTable } = {}) => {
 			return _code(docType.name, isRest);
 		case 'array':
 			const _type = _parseType(docType.elementType, { isRest, inTable });
-			return _type ? _code(_trimCode(_type) + '[]') : _type;
+			const _c = _trimCode(_type);
+			return _type ? _code(isGroup ? `(${_c})[]` : `${_c}[]`) : _type;
 		case 'reflection':
 			return _code(
 				_trimAllCode(_parseReflection(docType.declaration, inTable === true))
 			);
 		case 'intersection':
-			return _code(_parseTrimJoin(docType.types, ' & '), isRest);
+			return _code(
+				_parseTrimJoin(docType.types, ' & ', { isRest, inTable, isGroup: true }),
+				isRest
+			);
 		case 'union':
-			return _code(_parseTrimJoin(docType.types, ' │ '), isRest);
+			return _code(
+				_parseTrimJoin(docType.types, ' │ ', { isRest, inTable, isGroup: true }),
+				isRest
+			);
 		case 'literal':
 			return _code(docType.value, isRest);
 		default:
