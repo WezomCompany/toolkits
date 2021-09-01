@@ -1,6 +1,6 @@
 {
   "name": "@wezom/toolkit-array-cjs",
-  "version": "5.6.0",
+  "version": "5.7.0",
   "description": "Useful tools for working with Arrays. CommonJS distribution version",
   "main": "dist/index.js",
   "files": [
