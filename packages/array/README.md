@@ -17,6 +17,8 @@
     1. [`arrayClone()`](#arrayclone)
     1. [`arrayFilterNullable()`](#arrayfilternullable)
     1. [`arrayFilterUnique()`](#arrayfilterunique)
+    1. [`arrayGetFirstNotNullableItem()`](#arraygetfirstnotnullableitem)
+    1. [`arrayRemoveByIndex()`](#arrayremovebyindex)
     1. [`arrayRemoveItems()`](#arrayremoveitems)
     1. [`arraySimpleRandomFn()`](#arraysimplerandomfn)
     1. [`arrayToggleItem()`](#arraytoggleitem)
@@ -114,7 +116,7 @@ _Parameters:_
 
 | Name | Data type           | Argument   | Default value | Description |
 | ---- | ------------------- | ---------- | ------------- | ----------- |
-| data | `T │ null[] │ null` | _optional_ |               |
+| data | `(T │ null)[] │ null` | _optional_ |               |
 
 _Returns:_ `T[]`
 
@@ -186,6 +188,71 @@ arrayFilterUnique([
 [comment]: <> (AUTODOC-TOOL-END)
 
 ---
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+### arrayGetFirstNotNullableItem()
+
+[comment]: <> (AUTODOC-TOOL-START::get-first-not-nullable-item#default)
+
+Getting first not nullable item from given array data
+
+_Parameters:_
+
+| Name            | Data type           | Argument   | Default value | Description |
+| --------------- | ------------------- | ---------- | ------------- | ----------- |
+| data            | `(T │ null)[] │ null` | _optional_ |               |
+| strictZeroIndex | `boolean`           | _optional_ |               |
+
+_Returns:_ `T │ undefined`
+
+_Examples:_
+
+```ts
+arrayGetFirstNotNullableItem([1, null, 2, undefined, 3, false, 0]); // => 1
+arrayGetFirstNotNullableItem([null, null, undefined, 3, false, 0]); // => 3
+// strictZeroIndex example
+arrayGetFirstNotNullableItem([1, null, 2, undefined, 3, false, 0], true); // => 1
+arrayGetFirstNotNullableItem([null, null, undefined, 3, false, 0], true); // => undefined
+// nullable data example
+arrayGetFirstNotNullableItem(null); // => undefined
+arrayGetFirstNotNullableItem([null, undefined, null]); // => undefined
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
+
+---
+
+[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
+
+---
+
+### arrayRemoveByIndex()
+
+[comment]: <> (AUTODOC-TOOL-START::remove-by-index#default)
+
+Clones an array and removes items by index
+
+_Parameters:_
+
+| Name        | Data type | Argument   | Default value | Description |
+| ----------- | --------- | ---------- | ------------- | ----------- |
+| array       | `T[]`     |            |               |
+| index       | `number`  |            |               |
+| deleteCount | `number`  | _optional_ | `1`           |
+
+_Returns:_ `T[]`
+
+_Examples:_
+
+```ts
+arrayRemoveByIndex(['A', 'B', 'C'], 1); // >>> ['A', 'C'];
+arrayRemoveByIndex(['A', 'B', 'C', 'D', 'E'], 1, 3); // >>> ['A', 'E'];
+```
+
+[comment]: <> (AUTODOC-TOOL-END)
 
 ---
 
