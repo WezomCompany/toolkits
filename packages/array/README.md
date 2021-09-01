@@ -2,9 +2,9 @@
 
 > _Useful tools for working with Arrays_
 
-| Statements                                                                  | Branches                                                                  | Functions                                                                  | Lines                                                                  |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) |
+| Statements                                                                    | Branches                                                                    | Functions                                                                  | Lines                                                                    |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| ![Statements](https://img.shields.io/badge/Coverage-98.65%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-96.67%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-98.28%25-brightgreen.svg) |
 
 ## Table of Content:
 
