@@ -4,7 +4,7 @@
 
 | Statements                                                                    | Branches                                                                    | Functions                                                                  | Lines                                                                    |
 | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| ![Statements](https://img.shields.io/badge/Coverage-98.65%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-96.67%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-98.28%25-brightgreen.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-98.72%25-brightgreen.svg) | ![Branches](https://img.shields.io/badge/Coverage-96.88%25-brightgreen.svg) | ![Functions](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg) | ![Lines](https://img.shields.io/badge/Coverage-98.44%25-brightgreen.svg) |
 
 ## Table of Content:
 
@@ -114,11 +114,12 @@ Filter `null` and `undefined` array items
 
 _Parameters:_
 
-| Name | Data type             | Argument   | Default value | Description |
-| ---- | --------------------- | ---------- | ------------- | ----------- |
-| data | `(T │ null)[] │ null` | _optional_ |               |
+| Name      | Data type                         | Argument   | Default value | Description |
+| --------- | --------------------------------- | ---------- | ------------- | ----------- |
+| data      | `(T │ null │ undefined)[] │ null` | _optional_ |               |
+| predicate | ``                                | _optional_ | `...`         |
 
-_Returns:_ `T[]`
+_Returns:_ `R[]`
 
 _Examples:_
 
@@ -126,6 +127,32 @@ _Examples:_
 arrayFilterNullable([1, null, 2, undefined, 3, false, 0]); // => [1, 2, 3, false, 0]
 arrayFilterNullable(null); // => []
 arrayFilterNullable(); // => []
+
+// Custom predicate. Use case example #1
+interface A {
+	x: string;
+}
+interface B {
+	x: string;
+	y: string;
+}
+const data: (A | B | null)[] | null = [{ x: '1' }, { x: '2' }, null, { x: '3', y: '4' }];
+const result = arrayFilterNullable(
+	data,
+	(item): item is B => item != null && 'y' in item
+);
+
+// Custom predicate. Use case example #3
+interface D {
+	x: number;
+	y: string;
+}
+type E = Partial<D>;
+const data: (C | D | null)[] | null = [{ y: 1, x: '2' }, null, { x: '2' }, { y: 4 }];
+const result = arrayFilterNullable(
+	data,
+	(item): item is D => item != null && item.y != null && item.x !== null
+);
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)
@@ -205,20 +232,48 @@ _Parameters:_
 | --------------- | --------------------- | ---------- | ------------- | ----------- |
 | data            | `(T │ null)[] │ null` | _optional_ |               |
 | strictZeroIndex | `boolean`             | _optional_ |               |
+| predicate       | ``                    | _optional_ | `...`         |
 
-_Returns:_ `T │ undefined`
+_Returns:_ `R │ undefined`
 
 _Examples:_
 
 ```ts
 arrayGetFirstNotNullableItem([1, null, 2, undefined, 3, false, 0]); // => 1
 arrayGetFirstNotNullableItem([null, null, undefined, 3, false, 0]); // => 3
-// strictZeroIndex example
+
+// StrictZeroIndex example
 arrayGetFirstNotNullableItem([1, null, 2, undefined, 3, false, 0], true); // => 1
 arrayGetFirstNotNullableItem([null, null, undefined, 3, false, 0], true); // => undefined
-// nullable data example
+
+// Nullable data example
 arrayGetFirstNotNullableItem(null); // => undefined
 arrayGetFirstNotNullableItem([null, undefined, null]); // => undefined
+
+// -------------------
+
+// Custom predicate
+interface A {
+	x: string;
+	y: string;
+}
+type B = Partial<A>;
+
+// must find on 2 index                ✕     ✕           ✔︎                   ✕
+const data: (A | B | null)[] | null = [null, { x: '1' }, { x: '3', y: '4' }, { y: '2' }];
+const result = arrayGetFirstNotNullableItem(
+	data,
+	false,
+	(item): item is A => item != null && 'y' in item
+);
+
+// strict: check only 0 index          ✕           ✕      ✔︎                   ✕
+const data: (A | B | null)[] | null = [{ x: '1' }, null, { x: '3', y: '4' }, { y: '2' }];
+const result = arrayGetFirstNotNullableItem(
+	data,
+	true,
+	(item): item is A => item != null && 'y' in item
+);
 ```
 
 [comment]: <> (AUTODOC-TOOL-END)
