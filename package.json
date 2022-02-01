@@ -43,12 +43,8 @@
   ],
   "dependencies": {
     "@wezom/toolkit-array": "file:packages/array",
-    "@wezom/toolkit-array-cjs": "file:packages/array-cjs",
     "@wezom/toolkit-css-in-js": "file:packages/css-in-js",
-    "@wezom/toolkit-css-in-js-cjs": "file:packages/css-in-js-cjs",
     "@wezom/toolkit-math": "file:packages/math",
-    "@wezom/toolkit-math-cjs": "file:packages/math-cjs",
-    "@wezom/toolkit-promise": "file:packages/promise",
-    "@wezom/toolkit-promise-cjs": "file:packages/promise-cjs"
+    "@wezom/toolkit-promise": "file:packages/promise"
   }
 }

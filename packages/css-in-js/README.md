@@ -37,8 +37,8 @@
         - [`jssFontFaceSrc()`](#jssfontfacesrc)
     - [Custom Properties](#custom-properties)
         - [`jssVar()`](#jssvar)
-3. [Contributing](#contributing)
-4. [License](#licence)
+2. [Contributing](#contributing)
+3. [License](#licence)
 
 ---
 
