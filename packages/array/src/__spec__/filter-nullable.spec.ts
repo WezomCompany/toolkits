@@ -39,7 +39,12 @@ type D = Partial<C>;
 
 describe('Custom predicate', () => {
 	test('A to B', () => {
-		const data: (A | B | null)[] | null = [{ x: '1' }, { x: '2' }, null, { x: '3', y: '4' }];
+		const data: (A | B | null)[] | null = [
+			{ x: '1' },
+			{ x: '2' },
+			null,
+			{ x: '3', y: '4' }
+		];
 		const result = arrayFilterNullable(
 			data,
 			(item): item is B => item != null && 'y' in item
@@ -48,7 +53,12 @@ describe('Custom predicate', () => {
 	});
 
 	test('C to D', () => {
-		const data: (C | D | null)[] | null  = [{ y: 1, x: '2' }, null, { x: '2' }, { y: 4 }];
+		const data: (C | D | null)[] | null = [
+			{ y: 1, x: '2' },
+			null,
+			{ x: '2' },
+			{ y: 4 }
+		];
 		const result = arrayFilterNullable(
 			data,
 			(item): item is D => item != null && item.y != null && item.x != null
