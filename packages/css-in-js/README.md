@@ -8,11 +8,7 @@
 
 ## Table of Content:
 
-1. [Usage](#usage)
-    - [ESNext distribution version](#esnext-distribution-version)
-    - [CommonJS distribution version](#commonjs-distribution-version)
-    - [Install the chosen npm package](#install-the-chosen-npm-package)
-2. [Tools](#usage)
+1. [Tools](#usage)
     - [Absolute position](#absolute-position)
         - [`jssAbsoluteCenter()`](#jssabsolutecenter)
         - [`jssAbsoluteGap()`](#jssabsolutecenter)
@@ -43,44 +39,6 @@
         - [`jssVar()`](#jssvar)
 3. [Contributing](#contributing)
 4. [License](#licence)
-
----
-
-## Usage
-
-### ESNext distribution version
-
-We use TypeScript as main development language and distribute our lib in the maximum compliance with modern JavaScript
-specifications.
-
-Your project bundler (webpack or something else) should not exclude this installed package from `node_modules` folder
-for the transpilation process.
-
-_The
-package [`babel-loader-exclude-node-modules-except`](https://www.npmjs.com/package/babel-loader-exclude-node-modules-except)
-can help you with this_
-
-### CommonJS distribution version
-
-If you cannot change your bundler config or if you do not want to include _ESNext_ code version into your project - for
-this we have compiled CommonJS distribution version.
-
-You can
-install [`@wezom/toolkit-css-in-js-cjs`](https://github.com/WezomCompany/toolkits/blob/main/packages/css-in-js-cjs/README.md#readme)
-instead of the current package.
-
-### Install the chosen npm package
-
-```bash
-# esnext version
-npm i @wezom/toolkit-css-in-js
-# or commonjs
-npm i @wezom/toolkit-css-in-js-cjs
-```
-
----
-
-[▲ Go Top](#) | [▲ Table of Content](#table-of-content)
 
 ---
 
