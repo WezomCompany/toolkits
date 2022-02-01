@@ -1,6 +1,6 @@
 {
   "name": "@wezom/toolkit-math",
-  "version": "6.0.2",
+  "version": "6.1.0",
   "description": "Useful math tools",
   "main": "dist/index.js",
   "files": [

@@ -1,6 +1,6 @@
 {
 	"name": "@wezom/toolkit-array",
-  "version": "6.0.2",
+	"version": "6.1.0",
 	"description": "Useful tools for working with Arrays",
 	"main": "dist/index.js",
 	"files": [

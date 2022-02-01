@@ -1,6 +1,6 @@
 {
   "name": "@wezom/toolkit-promise",
-  "version": "6.0.2",
+  "version": "6.1.0",
   "description": "Useful tools for working with Promises",
   "main": "dist/index.js",
   "files": [
