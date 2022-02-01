@@ -1,14 +1,10 @@
 # @wezom/toolkit-css-in-js-cjs
 
-**This is CommonJS distribution version.**
+**This package is DEPRECATED**
 
-See full description in the original package [@wezom/toolkit-css-in-js](https://github.com/WezomCompany/toolkits/blob/main/packages/css-in-js/README.md#readme)
+Use [@wezom/toolkit-css-in-js](https://github.com/WezomCompany/toolkits/blob/main/packages/css-in-js/README.md#readme) instead.
 
 ---
-
-## Contributing
-
-Please fill free to create [issues](https://github.com/WezomCompany/toolkits/issues) or send [PR](https://github.com/WezomCompany/toolkits/pulls)
 
 ## Licence
 

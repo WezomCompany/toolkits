@@ -1,6 +1,6 @@
 {
   "name": "@wezom/toolkit-math-cjs",
-  "version": "5.6.0",
+  "version": "6.0.0",
   "description": "Useful math tools. CommonJS distribution version.",
   "main": "dist/index.js",
   "files": [

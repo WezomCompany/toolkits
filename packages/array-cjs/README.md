@@ -1,14 +1,10 @@
 # @wezom/toolkit-array-cjs
 
-**This is CommonJS distribution version.**
+**This package is DEPRECATED**
 
-See full description in the original package [@wezom/toolkit-array](https://github.com/WezomCompany/toolkits/blob/main/packages/array/README.md#readme)
+Use [@wezom/toolkit-array](https://github.com/WezomCompany/toolkits/blob/main/packages/array/README.md#readme) instead.
 
 ---
-
-## Contributing
-
-Please fill free to create [issues](https://github.com/WezomCompany/toolkits/issues) or send [PR](https://github.com/WezomCompany/toolkits/pulls)
 
 ## Licence
 

@@ -1,14 +1,10 @@
 # @wezom/toolkit-math-cjs
 
-**This is CommonJS distribution version.**
+**This package is DEPRECATED**
 
-See full description in the original package [@wezom/toolkit-math](https://github.com/WezomCompany/toolkits/blob/main/packages/math/README.md#readme)
+Use [@wezom/toolkit-math](https://github.com/WezomCompany/toolkits/blob/main/packages/math/README.md#readme) instead.
 
 ---
-
-## Contributing
-
-Please fill free to create [issues](https://github.com/WezomCompany/toolkits/issues) or send [PR](https://github.com/WezomCompany/toolkits/pulls)
 
 ## Licence
 
